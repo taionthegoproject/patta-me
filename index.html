@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patta.me — ลดเรื่องให้คิด ใช้ชีวิตให้มากขึ้น</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════
+   TOKENS
+══════════════════════════════════ */
+:root{
+  --cream:#FAF8F3; --cream2:#F2EDE2; --cream3:#E8E0CE;
+  --yellow:#F5C84A; --y-l:#FEF3C7; --y-d:#D97706;
+  --pink:#F9A8C9;  --p-l:#FCE7F3;
+  --mint:#6EE7B7;  --m-l:#D1FAE5;
+  --lav:#C4B5FD;   --l-l:#EDE9FE;
+  --sky:#7DD3FC;   --s-l:#E0F2FE;
+  --dark:#1A1A1A;  --dark2:#2C2C2C;
+  --text:#1A1A1A;  --t2:#6B6B6B; --t3:#ABABAB;
+  --bd:rgba(0,0,0,.07); --bd2:rgba(0,0,0,.04);
+  --sh0:0 1px 4px rgba(0,0,0,.05);
+  --sh:0 4px 24px rgba(0,0,0,.08);
+  --shl:0 12px 48px rgba(0,0,0,.10);
+  --r:14px; --rg:20px; --rx:28px; --p:999px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Sarabun',sans-serif;
+  background:var(--cream);color:var(--text);
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.65;
+}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;line-height:1.12}
+
+/* ══════════════════════════════════
+   LAYOUT
+══════════════════════════════════ */
+.w{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* ══════════════════════════════════
+   BUTTONS
+══════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:12px 24px;border-radius:var(--p);
+  font-size:14px;font-weight:600;font-family:'Sarabun',sans-serif;
+  transition:all .22s cubic-bezier(.34,1.56,.64,1);white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn-dark{background:var(--dark);color:#fff;box-shadow:0 4px 16px rgba(26,26,26,.22)}
+.btn-dark:hover{box-shadow:0 8px 28px rgba(26,26,26,.28)}
+.btn-y{background:var(--yellow);color:var(--dark);box-shadow:0 4px 16px rgba(245,200,74,.3)}
+.btn-y:hover{box-shadow:0 8px 28px rgba(245,200,74,.4)}
+.btn-ghost{border:1.5px solid var(--bd);color:var(--t2)}
+.btn-ghost:hover{background:var(--cream2);color:var(--text);border-color:rgba(0,0,0,.12)}
+.btn-glass{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.btn-glass:hover{background:rgba(255,255,255,.22)}
+
+/* ══════════════════════════════════
+   CHIPS
+══════════════════════════════════ */
+.chip{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:4px 12px;border-radius:var(--p);
+  font-size:11px;font-weight:700;font-family:'Sarabun',sans-serif;
+  letter-spacing:.04em;
+}
+.cy{background:var(--y-l);color:#92400E}
+.cm{background:var(--m-l);color:#065F46}
+.cl{background:var(--l-l);color:#5B21B6}
+.cp{background:var(--p-l);color:#9D174D}
+.cs{background:var(--s-l);color:#0369A1}
+.cd{background:var(--dark);color:#fff}
+
+/* ══════════════════════════════════
+   NAVBAR
+══════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  padding:0 24px;transition:all .3s ease;
+}
+#nav.on{
+  background:rgba(250,248,243,.88);
+  backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom:1px solid var(--bd2);
+}
+.nav-row{
+  max-width:1100px;margin:0 auto;
+  height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.logo{font-size:19px;font-weight:700;color:var(--dark);display:flex;align-items:center;gap:2px}
+.logo-dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);margin:0 1px;animation:ldot 2.5s ease-in-out infinite}
+@keyframes ldot{0%,100%{transform:scale(1)}50%{transform:scale(1.5)}}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{padding:6px 14px;border-radius:var(--p);font-size:14px;font-weight:500;color:var(--t2);transition:all .18s}
+.nav-links a:hover{background:var(--cream2);color:var(--text)}
+.nav-cta{padding:9px 20px;border-radius:var(--p);background:var(--dark);color:#fff;font-size:13px;font-weight:600;transition:all .22s cubic-bezier(.34,1.56,.64,1)}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,26,26,.22)}
+.nav-burger{display:none;padding:6px 10px;border-radius:var(--r);background:var(--cream2);font-size:17px}
+
+/* ══════════════════════════════════
+   HERO
+══════════════════════════════════ */
+#hero{
+  min-height:100svh;padding-top:62px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+}
+#hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 50% at 10% 20%,rgba(245,200,74,.17) 0%,transparent 55%),
+    radial-gradient(ellipse 45% 40% at 90% 10%,rgba(196,181,253,.14) 0%,transparent 50%),
+    radial-gradient(ellipse 40% 35% at 75% 85%,rgba(110,231,183,.12) 0%,transparent 50%),
+    radial-gradient(ellipse 30% 28% at 2%  85%,rgba(249,168,201,.11) 0%,transparent 45%);
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;align-items:center;
+  padding:72px 0 88px;position:relative;z-index:1;
+}
+
+/* left */
+.hero-pill{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:5px 13px;border-radius:var(--p);
+  background:rgba(255,255,255,.75);border:1px solid var(--bd);
+  backdrop-filter:blur(8px);font-size:12px;font-weight:600;color:var(--t2);
+  margin-bottom:22px;
+  animation:up .6s ease both;
+}
+.hero-pill .pd{width:6px;height:6px;border-radius:50%;background:var(--mint);animation:ldot 2s ease-in-out infinite}
+.hero-h1{font-size:clamp(38px,4.8vw,60px);font-weight:700;color:var(--dark);margin-bottom:20px;animation:up .6s ease .08s both}
+.hero-h1 mark{background:none;color:inherit;position:relative;display:inline}
+.hero-h1 mark::after{
+  content:'';position:absolute;left:0;right:0;bottom:3px;height:10px;
+  background:var(--yellow);border-radius:4px;z-index:-1;transform:rotate(-.4deg);
+}
+.hero-sub{font-size:15px;color:var(--t2);line-height:1.72;max-width:440px;margin-bottom:34px;animation:up .6s ease .16s both}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px;animation:up .6s ease .24s both}
+.hero-trust{display:flex;align-items:center;gap:12px;flex-wrap:wrap;animation:up .6s ease .32s both}
+.ti{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--t3)}
+.ts{width:1px;height:12px;background:var(--bd)}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* right — ecosystem visual */
+.hero-vis{
+  position:relative;height:520px;
+  display:flex;align-items:center;justify-content:center;
+  animation:up .7s ease .1s both;
+}
+
+/* ── CENTER: Jodyub card ── */
+.eco-jodyub{
+  position:relative;z-index:5;
+  background:#fff;border-radius:var(--rx);
+  border:1px solid var(--bd);box-shadow:var(--shl);
+  width:250px;padding:18px;
+}
+.ej-hd{margin-bottom:12px}
+.ej-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;color:#065F46;background:var(--m-l);padding:3px 10px;border-radius:var(--p);margin-bottom:8px}
+.ej-badge .dot{width:5px;height:5px;border-radius:50%;background:var(--mint);animation:ldot 2s ease-in-out infinite}
+.ej-name{font-family:'Anuphan',sans-serif;font-size:17px;font-weight:700;color:var(--dark);margin-bottom:2px}
+.ej-sub{font-size:11px;color:var(--t3)}
+.ej-screen{background:#0C0C1E;border-radius:var(--r);padding:12px;margin-bottom:12px}
+.ejs-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px}
+.ejs-trip{font-size:10px;font-weight:700;color:#fff}
+.ejs-amt{font-size:16px;font-weight:800;color:#C7F464}
+.ejs-rows{display:flex;flex-direction:column;gap:4px}
+.ejs-row{background:#16163A;border-radius:6px;padding:5px 8px;display:flex;align-items:center;gap:6px}
+.ejs-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.ejs-n{flex:1;font-size:8px;color:rgba(255,255,255,.8)}
+.ejs-v{font-size:8px;font-weight:700}
+.ej-cta{display:flex;align-items:center;justify-content:space-between}
+.ej-cta-btn{padding:6px 14px;background:var(--dark);color:#fff;border-radius:var(--p);font-size:11px;font-weight:700;font-family:'Sarabun',sans-serif;transition:all .2s}
+.ej-cta-btn:hover{background:var(--dark2);transform:translateY(-1px)}
+
+/* ── FLOATING MINI CARDS ── */
+.mini{
+  position:absolute;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.9);
+  border-radius:var(--rg);padding:12px 14px;box-shadow:var(--sh);
+}
+.m1{top:30px;left:-40px;z-index:4;animation:float 6s ease-in-out infinite 0s}
+.m2{top:140px;right:-52px;z-index:4;animation:float 6s ease-in-out infinite 1.4s}
+.m3{bottom:90px;left:-36px;z-index:4;animation:float 6s ease-in-out infinite 2.8s}
+.m4{bottom:40px;right:-44px;z-index:4;animation:float 5.5s ease-in-out infinite 0.7s}
+.m5{top:-10px;right:20px;z-index:3;animation:float 7s ease-in-out infinite 3.5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.mini-label{font-size:9px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.mini-val{font-size:14px;font-weight:800;color:var(--dark)}
+.mini-sub{font-size:10px;color:var(--t2);margin-top:3px}
+.mini-row{display:flex;align-items:center;gap:7px;font-size:12px}
+.mini-row+.mini-row{margin-top:4px}
+.mini-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* mascots */
+.mas{position:absolute;pointer-events:none;z-index:3}
+.mas1{top:0;right:0;animation:mas 7s ease-in-out infinite 0s}
+.mas2{bottom:40px;right:-10px;animation:mas 7s ease-in-out infinite 2s}
+.mas3{top:45%;left:-50px;animation:mas 7s ease-in-out infinite 4s}
+@keyframes mas{0%,100%{transform:translateY(0) rotate(0deg)}33%{transform:translateY(-13px) rotate(4deg)}66%{transform:translateY(7px) rotate(-2deg)}}
+
+/* ══════════════════════════════════
+   MARQUEE
+══════════════════════════════════ */
+#mq{overflow:hidden;padding:0}
+.mq-wrap{
+  background:var(--dark);border-radius:0;
+  padding:16px 0;
+}
+.mq-track{
+  display:flex;white-space:nowrap;
+  animation:mqs 32s linear infinite;
+}
+.mq-track:hover{animation-play-state:paused}
+.mq-item{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:0 28px;font-size:13px;font-weight:500;
+  color:rgba(255,255,255,.65);font-family:'Sarabun',sans-serif;
+}
+.mq-sep{color:var(--yellow);opacity:.8;font-size:9px}
+@keyframes mqs{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ══════════════════════════════════
+   COMMON SECTION PARTS
+══════════════════════════════════ */
+.ey{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 13px;border-radius:var(--p);
+  font-family:'Sarabun',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;
+}
+.sec-h{font-size:clamp(28px,3.8vw,44px);font-weight:700;color:var(--dark);letter-spacing:-.025em;margin-bottom:12px}
+.sec-b{font-size:15px;color:var(--t2);line-height:1.7;max-width:480px}
+
+/* privacy modal */
+#privacy-modal.open{display:flex!important}
+#privacy-modal>div{scrollbar-width:thin;scrollbar-color:var(--cream3) transparent}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* ══════════════════════════════════
+   FEATURED (Jodyub)
+══════════════════════════════════ */
+#feat{padding:100px 0;position:relative;overflow:hidden}
+#feat::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 55% 40% at 50% 60%,rgba(245,200,74,.09) 0%,transparent 65%);
+}
+.feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+
+.fc-hl{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 28px}
+.feat-checks{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.fck{display:flex;align-items:center;gap:11px;font-size:14px;color:var(--t2)}
+.fck-i{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--cream2);border:1px solid var(--bd);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;flex-shrink:0;color:var(--t3);
+}
+
+/* big browser mockup */
+.brow{
+  background:var(--cream2);border-radius:var(--rg);
+  border:1px solid var(--bd);box-shadow:var(--shl);overflow:hidden;
+}
+.brow-bar{
+  background:var(--cream3);padding:10px 14px;
+  display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--bd2);
+}
+.bd{width:10px;height:10px;border-radius:50%}
+.brow-url{
+  flex:1;background:rgba(255,255,255,.6);border:1px solid var(--bd);
+  border-radius:8px;padding:4px 12px;margin-left:8px;
+  font-size:10px;color:var(--t3);font-family:monospace;
+}
+.brow-body{background:#0C0C1E;padding:16px;display:flex;flex-direction:column;gap:9px}
+.bb-h{background:#16163A;border-radius:12px;padding:13px 15px}
+.bb-hr{display:flex;justify-content:space-between;align-items:flex-end}
+.bb-hn{font-size:13px;font-weight:700;color:#fff}
+.bb-ha{font-size:21px;font-weight:800;color:#C7F464}
+.bb-hl{font-size:8px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.5px}
+.bb-tabs{display:flex;gap:4px;margin-top:10px}
+.bb-tab{padding:4px 12px;border-radius:20px;font-size:9px;font-weight:700;color:rgba(255,255,255,.4)}
+.bb-tab.on{background:#C7F464;color:#0C0C1E}
+.bb-rows{display:flex;flex-direction:column;gap:7px}
+.bb-row{background:#16163A;border-radius:10px;padding:10px 13px;display:flex;align-items:center;gap:10px}
+.bb-icon{width:28px;height:28px;background:rgba(255,255,255,.06);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.bb-n{flex:1;font-size:11px;color:rgba(255,255,255,.85);font-weight:500}
+.bb-a{font-size:11px;font-weight:700}
+
+/* ══════════════════════════════════
+   ECOSYSTEM / OTHER TOOLS
+══════════════════════════════════ */
+#eco{padding:80px 0;background:var(--cream2);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd2)}
+.eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tc{
+  background:#fff;border-radius:var(--rx);border:1px solid var(--bd);
+  overflow:hidden;transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  position:relative;cursor:pointer;
+}
+.tc[href]{display:block}
+.tc:hover{transform:translateY(-5px);box-shadow:var(--shl);border-color:rgba(0,0,0,.1)}
+.tc.live::after{
+  content:'';position:absolute;top:16px;right:16px;
+  width:7px;height:7px;border-radius:50%;background:var(--mint);
+  animation:ping 2s ease-in-out infinite;
+}
+@keyframes ping{0%,100%{box-shadow:0 0 0 0 rgba(110,231,183,.6)}50%{box-shadow:0 0 0 6px rgba(110,231,183,0)}}
+.tc-top{padding:20px 20px 12px;display:flex;align-items:flex-start;justify-content:space-between}
+.tc-icon{width:44px;height:44px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.tc-st{font-size:10px;font-weight:700;padding:3px 10px;border-radius:var(--p);font-family:'Sarabun',sans-serif}
+.tc-body{padding:0 20px 20px}
+.tn{font-family:'Anuphan',sans-serif;font-size:15px;font-weight:700;color:var(--dark);margin-bottom:5px}
+.td{font-size:12px;color:var(--t2);line-height:1.55;margin-bottom:12px}
+.tc-tags{display:flex;gap:5px;flex-wrap:wrap}
+.tt{font-size:10px;font-weight:500;padding:3px 9px;border-radius:var(--p);background:var(--cream);border:1px solid var(--bd);color:var(--t2)}
+/* suggest card */
+.tc-sug{border-style:dashed;background:transparent;border-color:var(--cream3);cursor:default}
+.tc-sug:hover{transform:none;box-shadow:none}
+
+/* ══════════════════════════════════
+   COLLECTIONS
+══════════════════════════════════ */
+#cols{padding:80px 0}
+.cols-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.col-card{
+  border-radius:var(--rg);padding:24px 20px;border:1px solid var(--bd);
+  transition:all .22s cubic-bezier(.34,1.56,.64,1);cursor:pointer;
+  position:relative;overflow:hidden;
+}
+.col-card:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.col-icon{font-size:28px;margin-bottom:12px}
+.col-name{font-family:'Anuphan',sans-serif;font-size:15px;font-weight:700;color:var(--dark);margin-bottom:6px}
+.col-desc{font-size:12px;color:var(--t2);line-height:1.5;margin-bottom:12px}
+.col-count{font-size:10px;font-weight:700;color:var(--t3)}
+
+/* ══════════════════════════════════
+   WHY
+══════════════════════════════════ */
+#why{padding:100px 0;position:relative;overflow:hidden}
+#why::before{
+  content:'';position:absolute;top:-100px;right:-80px;
+  width:480px;height:480px;
+  background:radial-gradient(circle,rgba(196,181,253,.1) 0%,transparent 65%);pointer-events:none;
+}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-h{font-size:clamp(30px,3.8vw,48px);font-weight:700;color:var(--dark);letter-spacing:-.025em;margin-bottom:18px}
+.why-p{font-size:15px;color:var(--t2);line-height:1.75;margin-bottom:14px}
+.why-pts{display:flex;flex-direction:column;gap:16px;margin-top:28px}
+.wp{display:flex;gap:14px;align-items:flex-start}
+.wp-n{font-family:'Anuphan',sans-serif;font-weight:800;font-size:24px;color:var(--cream3);line-height:1;width:34px;flex-shrink:0}
+.wp-t{font-family:'Anuphan',sans-serif;font-weight:600;font-size:14px;color:var(--dark);margin-bottom:3px}
+.wp-d{font-size:12px;color:var(--t3);line-height:1.5}
+.why-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ws{background:var(--cream2);border:1px solid var(--bd);border-radius:var(--rx);padding:26px 18px;text-align:center;transition:all .2s}
+.ws:hover{background:#fff;transform:translateY(-3px);box-shadow:var(--sh)}
+.ws.dark{background:var(--dark);color:#fff;grid-column:1/-1}
+.ws-n{font-family:'Anuphan',sans-serif;font-weight:800;font-size:40px;line-height:1;margin-bottom:7px}
+.ws.dark .ws-n{color:var(--yellow)}
+.ws:not(.dark) .ws-n{color:var(--dark)}
+.ws-l{font-size:12px}
+.ws.dark .ws-l{color:rgba(255,255,255,.45)}
+.ws:not(.dark) .ws-l{color:var(--t2)}
+
+/* ══════════════════════════════════
+   CTA
+══════════════════════════════════ */
+#cta{padding:80px 0;background:var(--dark);position:relative;overflow:hidden}
+#cta::before{
+  content:'';position:absolute;top:-90px;left:50%;transform:translateX(-50%);
+  width:650px;height:320px;
+  background:radial-gradient(ellipse,rgba(245,200,74,.14) 0%,transparent 65%);pointer-events:none;
+}
+.cta-inner{text-align:center;position:relative;z-index:1;max-width:500px;margin:0 auto}
+.cta-h{font-size:clamp(26px,3.8vw,44px);font-weight:700;color:#fff;letter-spacing:-.025em;line-height:1.15;margin-bottom:11px}
+.cta-s{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:28px}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+#foot{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:52px 0 32px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:44px}
+.foot-logo{font-family:'Anuphan',sans-serif;font-weight:700;font-size:18px;color:#fff;display:flex;align-items:center;gap:2px;margin-bottom:10px}
+.foot-tag{font-size:12px;color:rgba(255,255,255,.35);line-height:1.6;max-width:200px}
+.foot-made{font-size:11px;color:rgba(255,255,255,.18);margin-top:12px}
+.foot-col h5{font-size:10px;font-weight:700;color:rgba(255,255,255,.25);letter-spacing:.1em;text-transform:uppercase;margin-bottom:13px;font-family:'Sarabun',sans-serif}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:8px}
+.foot-links a{font-size:13px;color:rgba(255,255,255,.48);transition:color .15s}
+.foot-links a:hover{color:rgba(255,255,255,.88)}
+.foot-bot{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.foot-copy{font-size:11px;color:rgba(255,255,255,.2)}
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media(max-width:920px){
+  .hero-grid,.feat-grid,.why-grid{grid-template-columns:1fr;gap:40px}
+  .hero-grid{text-align:center;padding:52px 0 64px}
+  .hero-btns,.hero-trust{justify-content:center}
+  .hero-sub{margin:0 auto 32px}
+  .hero-vis{height:380px}
+  .eco-jodyub{width:220px}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .eco-grid{grid-template-columns:1fr 1fr}
+  .cols-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .why-stats{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .eco-grid{grid-template-columns:1fr}
+  .cols-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-h1{font-size:36px}
+  .mini{display:none}
+  .mas{display:none}
+  .hero-vis{height:320px}
+  .eco-jodyub{width:200px}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="nav">
+  <div class="nav-row">
+    <a href="#" class="logo">Patta<span class="logo-dot"></span>me</a>
+    <ul class="nav-links">
+      <li><a href="#eco">Tools</a></li>
+      <li><a href="#cols">Collections</a></li>
+      <li><a href="#why">About</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="https://taionthegoproject.github.io/jodyub" target="_blank" class="nav-cta">เปิด Jodyub →</a>
+      <button class="nav-burger">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="w">
+    <div class="hero-grid">
+
+      <!-- LEFT -->
+      <div>
+        <div class="hero-pill">
+          <span class="pd"></span>
+          Free tools · ไม่ต้องสมัคร · ใช้ได้เลย
+        </div>
+        <h1 class="hero-h1">ลดเรื่องให้คิด<br>ใช้ชีวิตให้ <mark>ง่ายขึ้น</mark></h1>
+        <p class="hero-sub">รวมเครื่องมือฟรี สำหรับชีวิตประจำวัน<br>เริ่มต้นด้วย Jodyub — ตัวช่วยจดค่าใช้จ่ายทริปแบบง่ายๆ</p>
+        <div class="hero-btns">
+          <a href="https://taionthegoproject.github.io/jodyub" target="_blank" class="btn btn-dark">เริ่มใช้ Jodyub →</a>
+          <a href="#eco" class="btn btn-ghost">ดู tools ทั้งหมด</a>
+        </div>
+        <div class="hero-trust">
+          <span class="ti">✓ ฟรี 100%</span>
+          <span class="ts"></span>
+          <span class="ti">✓ ไม่ต้องสมัคร</span>
+          <span class="ts"></span>
+          <span class="ti">✓ ใช้ได้ทันที</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: ECOSYSTEM VISUAL -->
+      <div class="hero-vis">
+
+        <!-- CENTER: Jodyub card -->
+        <div class="eco-jodyub">
+          <div class="ej-hd">
+            <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
+            <div class="ej-name">Jodyub 💰</div>
+            <div class="ej-sub">Trip Expense Tracker</div>
+          </div>
+          <div class="ej-screen">
+            <div class="ejs-hd">
+              <div class="ejs-trip">Korea Trip 🇰🇷</div>
+              <div>
+                <div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">รวม</div>
+                <div class="ejs-amt">₩842K</div>
+              </div>
+            </div>
+            <div class="ejs-rows">
+              <div class="ejs-row"><div class="ejs-dot" style="background:#4ADE80"></div><div class="ejs-n">Food</div><div class="ejs-v" style="color:#4ADE80">₩35K</div></div>
+              <div class="ejs-row"><div class="ejs-dot" style="background:#F472B6"></div><div class="ejs-n">Aesthetic</div><div class="ejs-v" style="color:#F472B6">₩350K</div></div>
+              <div class="ejs-row"><div class="ejs-dot" style="background:#C084FC"></div><div class="ejs-n">Shopping</div><div class="ejs-v" style="color:#C084FC">₩89K</div></div>
+            </div>
+          </div>
+          <div class="ej-cta">
+            <div style="display:flex;gap:5px;flex-wrap:wrap">
+              <span class="chip cm" style="font-size:9px;padding:3px 8px">Multi Currency</span>
+              <span class="chip cy" style="font-size:9px;padding:3px 8px">Free</span>
+            </div>
+            <a href="https://taionthegoproject.github.io/jodyub" target="_blank" class="ej-cta-btn">ใช้เลย →</a>
+          </div>
+        </div>
+
+        <!-- MINI CARDS: other tools -->
+        <div class="mini m1">
+          <div class="mini-label">🎒 PackList</div>
+          <div style="display:flex;flex-direction:column;gap:3px;margin-top:2px">
+            <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t2)"><span>☑️</span> Passport</div>
+            <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t2)"><span>☑️</span> Charger</div>
+            <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t3)"><span>◻️</span> Adapter</div>
+          </div>
+        </div>
+
+        <div class="mini m2">
+          <div class="mini-label">💱 ConvertGo</div>
+          <div style="font-size:18px;font-weight:800;color:var(--dark);letter-spacing:-.5px">₩1,000</div>
+          <div style="font-size:11px;color:var(--t3);margin-top:2px">= ฿26.00</div>
+        </div>
+
+        <div class="mini m3">
+          <div class="mini-label">🎉 Settlement</div>
+          <div class="mini-row"><div class="mini-dot" style="background:var(--mint)"></div><span style="font-size:11px;color:var(--t2)">Person A</span><span style="font-size:11px;font-weight:700;color:var(--dark);margin-left:auto">฿13,312</span></div>
+          <div class="mini-row"><div class="mini-dot" style="background:var(--lav)"></div><span style="font-size:11px;color:var(--t2)">Person B</span><span style="font-size:11px;font-weight:700;color:var(--dark);margin-left:auto">฿8,580</span></div>
+        </div>
+
+        <div class="mini m4">
+          <div class="mini-label">⏱ Focus Timer</div>
+          <div style="font-size:20px;font-weight:800;color:var(--dark);text-align:center;letter-spacing:1px">25:00</div>
+          <div style="font-size:9px;color:var(--t3);text-align:center;margin-top:2px">Deep Work Session</div>
+        </div>
+
+        <div class="mini m5" style="padding:9px 12px">
+          <div style="display:flex;align-items:center;gap:7px">
+            <span style="font-size:16px">📅</span>
+            <div>
+              <div style="font-size:11px;font-weight:700;color:var(--dark)">Countdown</div>
+              <div style="font-size:9px;color:var(--t3)">14 days to trip!</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MASCOTS -->
+        <div class="mas mas1">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+            <polygon points="26,3 31,18 47,18 34,28 39,44 26,33 13,44 18,28 5,18 21,18" fill="#FDE68A" stroke="#1A1A1A" stroke-width="1.6"/>
+            <circle cx="21" cy="21" r="2.2" fill="#1A1A1A"/>
+            <circle cx="31" cy="21" r="2.2" fill="#1A1A1A"/>
+            <path d="M21 27 Q26 31 31 27" stroke="#1A1A1A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="mas mas2">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+            <ellipse cx="22" cy="25" rx="18" ry="16" fill="#C4B5FD" stroke="#1A1A1A" stroke-width="1.5"/>
+            <circle cx="16" cy="20" r="2.8" fill="#1A1A1A"/><circle cx="28" cy="20" r="2.8" fill="#1A1A1A"/>
+            <circle cx="16.8" cy="19.2" r="1.1" fill="#fff"/><circle cx="28.8" cy="19.2" r="1.1" fill="#fff"/>
+            <path d="M16 27 Q22 32 28 27" stroke="#1A1A1A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="13" cy="28" rx="2.8" ry="1.8" fill="rgba(249,168,201,.7)"/>
+            <ellipse cx="31" cy="28" rx="2.8" ry="1.8" fill="rgba(249,168,201,.7)"/>
+          </svg>
+        </div>
+        <div class="mas mas3">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="15" fill="#6EE7B7" stroke="#1A1A1A" stroke-width="1.4"/>
+            <circle cx="13" cy="14" r="2.3" fill="#1A1A1A"/><circle cx="23" cy="14" r="2.3" fill="#1A1A1A"/>
+            <path d="M13 21 Q18 25 23 21" stroke="#1A1A1A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MARQUEE ══ -->
+<div id="mq">
+  <div class="mq-wrap">
+    <div class="mq-track">
+      <span class="mq-item">เที่ยวสนุก เรื่องเงินไม่พัง<span class="mq-sep">✈️</span></span>
+      <span class="mq-item">รองรับหลายสกุลเงิน<span class="mq-sep">🌍</span></span>
+      <span class="mq-item">แชร์ค่าใช้จ่ายกับเพื่อนได้<span class="mq-sep">👯</span></span>
+      <span class="mq-item">ใช้ฟรี ไม่มีโฆษณากวนใจ<span class="mq-sep">✨</span></span>
+      <span class="mq-item">จบทริปแบบไม่งงว่าใครจ่าย<span class="mq-sep">🧾</span></span>
+      <span class="mq-item">ใช้บนมือถือสะดวก<span class="mq-sep">📱</span></span>
+      <span class="mq-item">tools สำหรับชีวิตประจำวัน<span class="mq-sep">🌤️</span></span>
+      <span class="mq-item">ใช้ง่าย ไม่ต้องสมัคร<span class="mq-sep">⭐</span></span>
+      <span class="mq-item">เว็บเดียว รวมทุกอย่าง<span class="mq-sep">🪄</span></span>
+      <span class="mq-item">เที่ยวสนุก เรื่องเงินไม่พัง<span class="mq-sep">✈️</span></span>
+      <span class="mq-item">รองรับหลายสกุลเงิน<span class="mq-sep">🌍</span></span>
+      <span class="mq-item">แชร์ค่าใช้จ่ายกับเพื่อนได้<span class="mq-sep">👯</span></span>
+      <span class="mq-item">ใช้ฟรี ไม่มีโฆษณากวนใจ<span class="mq-sep">✨</span></span>
+      <span class="mq-item">จบทริปแบบไม่งงว่าใครจ่าย<span class="mq-sep">🧾</span></span>
+      <span class="mq-item">ใช้บนมือถือสะดวก<span class="mq-sep">📱</span></span>
+      <span class="mq-item">tools สำหรับชีวิตประจำวัน<span class="mq-sep">🌤️</span></span>
+      <span class="mq-item">ใช้ง่าย ไม่ต้องสมัคร<span class="mq-sep">⭐</span></span>
+      <span class="mq-item">เว็บเดียว รวมทุกอย่าง<span class="mq-sep">🪄</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FEATURED ══ -->
+<section id="feat">
+  <div class="w">
+    <div class="feat-grid">
+      <div class="rv">
+        <div class="ey" style="background:var(--m-l);color:#065F46">🔥 Featured Tool</div>
+        <h2 class="sec-h">Jodyub</h2>
+        <p class="sec-b">จดค่าใช้จ่ายทริป แชร์กับเพื่อนง่ายๆ รองรับหลายสกุลเงิน ใช้ได้เลยไม่ต้องสมัคร</p>
+        <div class="feat-checks">
+          <div class="fck"><div class="fck-i">✓</div>สร้างทริป ได้ Trip Code แชร์เพื่อนได้ทันที</div>
+          <div class="fck"><div class="fck-i">✓</div>รองรับ KRW · JPY · USD และอื่นๆ</div>
+          <div class="fck"><div class="fck-i">✓</div>สรุปยอดและหารเงินหลังทริป</div>
+          <div class="fck"><div class="fck-i">✓</div>ใช้ได้บนมือถือ ไม่ต้องโหลดแอป</div>
+        </div>
+        <div class="fc-hl">
+          <span class="chip cy">แชร์ลิงก์ได้</span>
+          <span class="chip cm">Mobile Friendly</span>
+          <span class="chip cl">Multi Currency</span>
+          <span class="chip cd">Free to Use</span>
+          <span class="chip cs">Trip Summary</span>
+          <span class="chip cp">Split Bills</span>
+        </div>
+        <a href="https://taionthegoproject.github.io/jodyub" target="_blank" class="btn btn-dark">เปิดใช้งาน Jodyub →</a>
+      </div>
+      <div class="rv d1">
+        <div class="brow">
+          <div class="brow-bar">
+            <div class="bd" style="background:#FF5F57"></div>
+            <div class="bd" style="background:#FEBC2E"></div>
+            <div class="bd" style="background:#28C840"></div>
+            <div class="brow-url">taionthegoproject.github.io/jodyub</div>
+          </div>
+          <div class="brow-body">
+            <div class="bb-h">
+              <div class="bb-hr">
+                <div><div class="bb-hn">Korea Trip 🇰🇷</div><div style="font-size:9px;color:rgba(255,255,255,.3);margin-top:2px">11–18 April</div></div>
+                <div style="text-align:right"><div class="bb-hl">รวมทั้งหมด</div><div class="bb-ha">₩842,000</div></div>
+              </div>
+              <div class="bb-tabs"><div class="bb-tab on">+ เพิ่ม</div><div class="bb-tab">รายการ</div><div class="bb-tab">สรุป</div></div>
+            </div>
+            <div class="bb-rows">
+              <div class="bb-row"><div class="bb-icon">🍜</div><div class="bb-n">ซัมกยอปซัล</div><div class="bb-a" style="color:#4ADE80">₩35,000</div></div>
+              <div class="bb-row"><div class="bb-icon">💉</div><div class="bb-n">Aesthetic Clinic</div><div class="bb-a" style="color:#F472B6">₩350,000</div></div>
+              <div class="bb-row"><div class="bb-icon">🛍</div><div class="bb-n">ช้อปปิ้ง Hongdae</div><div class="bb-a" style="color:#C084FC">₩89,000</div></div>
+              <div class="bb-row"><div class="bb-icon">🏨</div><div class="bb-n">โรงแรม</div><div class="bb-a" style="color:#FB923C">₩180,000</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ECOSYSTEM ══ -->
+<section id="eco">
+  <div class="w">
+    <div class="rv" style="margin-bottom:40px">
+      <div class="ey" style="background:var(--cream3);color:var(--t2)">🌐 Patta.me Ecosystem</div>
+      <h2 class="sec-h">เครื่องมืออื่นๆ<br>กำลังมา</h2>
+      <p class="sec-b">Jodyub เป็นแค่จุดเริ่มต้น Patta.me กำลังสร้าง tools อื่นๆ เพื่อทำให้ชีวิตประจำวันง่ายขึ้น</p>
+    </div>
+    <div class="eco-grid rv">
+      <a href="https://taionthegoproject.github.io/jodyub" target="_blank" class="tc live" data-c="travel finance">
+        <div class="tc-top"><div class="tc-icon" style="background:var(--y-l)">💰</div><span class="tc-st" style="background:var(--m-l);color:#065F46">● Live</span></div>
+        <div class="tc-body"><div class="tn">Jodyub</div><div class="td">บันทึกค่าใช้จ่ายทริป แชร์กับเพื่อน หารเงินง่ายๆ</div><div class="tc-tags"><span class="tt">✈️ ท่องเที่ยว</span><span class="tt">💱 Multi Currency</span></div></div>
+      </a>
+      <div class="tc" data-c="travel finance">
+        <div class="tc-top"><div class="tc-icon" style="background:var(--m-l)">💱</div><span class="tc-st" style="background:var(--cream3);color:var(--t3)">เร็วๆ นี้</span></div>
+        <div class="tc-body"><div class="tn">ConvertGo</div><div class="td">แปลงสกุลเงิน real-time รองรับ 150+ สกุล</div><div class="tc-tags"><span class="tt">💱 Currency</span><span class="tt">⚡ Real-time</span></div></div>
+      </div>
+      <div class="tc" data-c="travel productivity">
+        <div class="tc-top"><div class="tc-icon" style="background:var(--p-l)">🎒</div><span class="tc-st" style="background:var(--cream3);color:var(--t3)">เร็วๆ นี้</span></div>
+        <div class="tc-body"><div class="tn">PackList</div><div class="td">เช็คลิสต์ก่อนเดินทาง แชร์กับเพื่อนได้</div><div class="tc-tags"><span class="tt">✈️ ท่องเที่ยว</span><span class="tt">📋 Checklist</span></div></div>
+      </div>
+      <div class="tc" data-c="productivity">
+        <div class="tc-top"><div class="tc-icon" style="background:#FEE2E2">🍅</div><span class="tc-st" style="background:var(--cream3);color:var(--t3)">เร็วๆ นี้</span></div>
+        <div class="tc-body"><div class="tn">Focus Timer</div><div class="td">จับเวลา Pomodoro ช่วยให้โฟกัสได้ดีขึ้น</div><div class="tc-tags"><span class="tt">⚡ Productivity</span><span class="tt">⏱ Timer</span></div></div>
+      </div>
+      <div class="tc" data-c="everyday">
+        <div class="tc-top"><div class="tc-icon" style="background:var(--l-l)">📅</div><span class="tc-st" style="background:var(--cream3);color:var(--t3)">เร็วๆ นี้</span></div>
+        <div class="tc-body"><div class="tn">Countdown</div><div class="td">นับถอยหลังวันสำคัญ วันหยุด วันเกิด</div><div class="tc-tags"><span class="tt">🌟 ชีวิตประจำวัน</span></div></div>
+      </div>
+      <div class="tc tc-sug">
+        <div class="tc-top"><div class="tc-icon" style="background:var(--cream2)">💡</div></div>
+        <div class="tc-body"><div class="tn" style="color:var(--t3)">เสนอ Tool</div><div class="td" style="color:var(--t3)">อยากให้มี tools อะไร? บอกเราได้เลย!</div><a href="#" class="btn btn-ghost" style="padding:7px 16px;font-size:12px;display:inline-flex;margin-top:6px">ส่งไอเดีย →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COLLECTIONS ══ -->
+<section id="cols" style="padding:80px 0">
+  <div class="w">
+    <div class="rv" style="text-align:center;margin-bottom:0">
+      <div class="ey" style="background:var(--y-l);color:var(--y-d)">📦 Collections</div>
+      <h2 class="sec-h">เลือกตามสิ่งที่คุณต้องการ</h2>
+      <p class="sec-b" style="margin:0 auto 0">จัดกลุ่ม tools ตามการใช้งาน หาสิ่งที่ใช่ได้ง่ายขึ้น</p>
+    </div>
+    <div class="cols-grid rv">
+      <div class="col-card" style="background:linear-gradient(135deg,var(--y-l),rgba(254,243,199,.3))">
+        <div class="col-icon">✈️</div>
+        <div class="col-name">Travel</div>
+        <div class="col-desc">tools สำหรับนักเดินทาง จัดการทริปได้ง่ายขึ้น</div>
+        <div class="col-count">2 tools · 3 coming soon</div>
+      </div>
+      <div class="col-card" style="background:linear-gradient(135deg,var(--m-l),rgba(209,250,229,.3))">
+        <div class="col-icon">💰</div>
+        <div class="col-name">Finance</div>
+        <div class="col-desc">จัดการเงิน แบ่งค่าใช้จ่าย คำนวณง่ายๆ</div>
+        <div class="col-count">1 tool · 2 coming soon</div>
+      </div>
+      <div class="col-card" style="background:linear-gradient(135deg,var(--l-l),rgba(237,233,254,.3))">
+        <div class="col-icon">⚡</div>
+        <div class="col-name">Productivity</div>
+        <div class="col-desc">ช่วยให้ทำงานได้ดีขึ้น โฟกัสได้นานขึ้น</div>
+        <div class="col-count">2 coming soon</div>
+      </div>
+      <div class="col-card" style="background:linear-gradient(135deg,var(--s-l),rgba(224,242,254,.3))">
+        <div class="col-icon">🌟</div>
+        <div class="col-name">Everyday Life</div>
+        <div class="col-desc">ใช้ชีวิตประจำวันให้ง่ายขึ้น ทีละนิด</div>
+        <div class="col-count">2 coming soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY ══ -->
+<section id="why">
+  <div class="w">
+    <div class="why-grid">
+      <div class="rv">
+        <div class="ey" style="background:var(--cream2);color:var(--t2);margin-bottom:16px">💚 Why Patta.me</div>
+        <h2 class="why-h">เราเชื่อว่า tools ดีๆ<br>ไม่ควรซับซ้อน</h2>
+        <p class="why-p">เราเชื่อว่าเครื่องมือที่ดีที่สุดคือเครื่องมือที่ใช้ได้เดี๋ยวนี้เลย โดยไม่ต้องเรียนรู้อะไรใหม่</p>
+        <p class="why-p">Patta.me สร้างมาเพื่อลด friction ในชีวิต ไม่ว่าจะเป็นเรื่องเล็กๆ อย่างหารค่าอาหาร หรือจัดการค่าใช้จ่ายทริป</p>
+        <div class="why-pts">
+          <div class="wp"><div class="wp-n">01</div><div><div class="wp-t">ไม่ต้องสมัคร ไม่ต้องโหลดแอป</div><div class="wp-d">เปิดเว็บแล้วใช้ได้ทันที ไม่มีขั้นตอนยุ่งยาก</div></div></div>
+          <div class="wp"><div class="wp-n">02</div><div><div class="wp-t">ฟรีจริงๆ ไม่มีแอบเก็บเงิน</div><div class="wp-d">ทุก tools ใช้ฟรีตลอดไป ไม่มีระบบ premium ซ่อนอยู่</div></div></div>
+          <div class="wp"><div class="wp-n">03</div><div><div class="wp-t">ออกแบบเพื่อมือถือก่อน</div><div class="wp-d">ใช้ระหว่างเดินทาง ระหว่างทาน ระหว่างใช้ชีวิต</div></div></div>
+        </div>
+      </div>
+      <div class="why-stats rv d1">
+        <div class="ws dark">
+          <div class="ws-n" id="cnt">24</div>
+          <div class="ws-l">ทริปที่สร้างไปแล้ว</div>
+        </div>
+        <div class="ws"><div class="ws-n" style="color:var(--mint)">100%</div><div class="ws-l">ฟรีตลอดไป</div></div>
+        <div class="ws"><div class="ws-n" style="color:var(--pink)">0</div><div class="ws-l">โฆษณา</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEEDBACK ══ -->
+<section id="feedback" style="padding:80px 0;background:var(--cream2);border-top:1px solid var(--bd2)">
+  <div class="w">
+    <div style="max-width:560px;margin:0 auto;text-align:center">
+      <div class="ey rv" style="background:var(--p-l);color:#9D174D;display:inline-flex">💬 Feedback</div>
+      <h2 class="sec-h rv" style="margin-bottom:12px">บอกเราได้เลย</h2>
+      <p class="sec-b rv" style="margin:0 auto 36px;text-align:center">อยากให้ปรับอะไร? มี tool ไหนอยากให้สร้าง? หรือแค่อยากบอกว่าชอบ ❤️ ก็ได้เลย</p>
+
+      <form id="feedback-form" action="https://api.web3forms.com/submit" method="POST" class="rv">
+        <!-- Web3Forms Access Key — กรอก key ของคุณที่นี่ -->
+        <input type="hidden" name="access_key" value="c329480c-8f8a-4eba-bce6-953e3c18750f">
+        <input type="hidden" name="subject" value="Feedback จาก Patta.me">
+        <input type="hidden" name="from_name" value="Patta.me Feedback">
+        <input type="hidden" name="redirect" value="false">
+
+        <div style="display:flex;flex-direction:column;gap:12px;text-align:left">
+          <div>
+            <label style="font-size:12px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:6px">อีเมล (ไม่บังคับ)</label>
+            <input type="email" name="email" placeholder="your@email.com"
+              style="width:100%;padding:12px 16px;border-radius:var(--r);border:1.5px solid var(--bd);background:#fff;font-family:'Sarabun',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='var(--yellow)'" onblur="this.style.borderColor='var(--bd)'">
+          </div>
+          <div>
+            <label style="font-size:12px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:6px">ประเภท</label>
+            <select name="type"
+              style="width:100%;padding:12px 16px;border-radius:var(--r);border:1.5px solid var(--bd);background:#fff;font-family:'Sarabun',sans-serif;font-size:14px;color:var(--text);outline:none;appearance:none;transition:border-color .2s"
+              onfocus="this.style.borderColor='var(--yellow)'" onblur="this.style.borderColor='var(--bd)'">
+              <option value="general">💬 ความคิดเห็นทั่วไป</option>
+              <option value="bug">🐛 พบ bug</option>
+              <option value="feature">💡 เสนอ feature ใหม่</option>
+              <option value="tool">🧰 อยากให้สร้าง tool ใหม่</option>
+              <option value="other">📦 อื่นๆ</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:12px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:6px">ข้อความ *</label>
+            <textarea name="message" rows="4" placeholder="บอกเราได้เลย..." required
+              style="width:100%;padding:12px 16px;border-radius:var(--r);border:1.5px solid var(--bd);background:#fff;font-family:'Sarabun',sans-serif;font-size:14px;color:var(--text);outline:none;resize:vertical;transition:border-color .2s;line-height:1.6"
+              onfocus="this.style.borderColor='var(--yellow)'" onblur="this.style.borderColor='var(--bd)'"></textarea>
+          </div>
+
+          <!-- honeypot -->
+          <input type="checkbox" name="botcheck" style="display:none">
+
+          <button type="submit" id="fb-btn" class="btn btn-dark" style="width:100%;justify-content:center;padding:14px">
+            <span id="fb-label">ส่ง Feedback →</span>
+          </button>
+
+          <div id="fb-success" style="display:none;text-align:center;padding:16px;background:var(--m-l);border-radius:var(--r);color:#065F46;font-weight:600;font-size:14px">
+            🎉 ขอบคุณมากๆน้าา เราได้รับ feedback แล้ว :)
+          </div>
+          <div id="fb-error" style="display:none;text-align:center;padding:16px;background:#FEE2E2;border-radius:var(--r);color:#991B1B;font-weight:600;font-size:14px">
+            ❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="w">
+    <div class="cta-inner rv">
+      <h2 class="cta-h">เริ่มใช้ tools ที่ช่วยให้<br>ชีวิตง่ายขึ้น</h2>
+      <p class="cta-s">ใช้ฟรี ไม่ต้องสมัคร · เปิดเว็บแล้วใช้ได้เลย</p>
+      <div class="cta-btns">
+        <a href="https://taionthegoproject.github.io/jodyub" target="_blank" class="btn btn-y">ลองใช้ Jodyub →</a>
+        <a href="#eco" class="btn btn-glass">ดู tools ทั้งหมด</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="foot">
+  <div class="w">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">Patta<span class="logo-dot" style="background:var(--yellow)"></span>me</div>
+        <p class="foot-tag">ลดเรื่องให้คิด ใช้ชีวิตให้มากขึ้น รวม tools ฟรีสำหรับชีวิตประจำวัน</p>
+        <p class="foot-made">Made to make life a little easier :)</p>
+      </div>
+      <div class="foot-col">
+        <h5>Tools</h5>
+        <ul class="foot-links">
+          <li><a href="#">Jodyub</a></li>
+          <li><a href="#">ConvertGo</a></li>
+          <li><a href="#">PackList</a></li>
+          <li><a href="#">Focus Timer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>เว็บไซต์</h5>
+        <ul class="foot-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Feedback</a></li>
+          <li><a href="#">Suggest a Tool</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>อื่นๆ</h5>
+        <ul class="foot-links">
+          <li><a href="#" onclick="document.getElementById('privacy-modal').classList.add('open');return false">Privacy Policy</a></li>
+          <li><a href="mailto:taionthego.co@gmail.com">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p class="foot-copy">© 2026 Patta.me · All rights reserved</p>
+      <p class="foot-copy">จุดเริ่มต้นของคนไม่อยากเสียเงิน 55555</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// navbar
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('on',scrollY>16)},{passive:true});
+
+// reveal
+var rvs=document.querySelectorAll('.rv');
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.1});
+rvs.forEach(function(el){obs.observe(el)});
+
+// feedback form
+var fbForm=document.getElementById('feedback-form');
+if(fbForm){
+  fbForm.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=document.getElementById('fb-btn');
+    var lbl=document.getElementById('fb-label');
+    var ok=document.getElementById('fb-success');
+    var err=document.getElementById('fb-error');
+    btn.disabled=true;lbl.textContent='⏳ กำลังส่ง...';
+    ok.style.display='none';err.style.display='none';
+    fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      body:new FormData(fbForm)
+    }).then(function(r){return r.json()}).then(function(d){
+      if(d.success){
+        ok.style.display='block';fbForm.reset();
+      } else {
+        err.style.display='block';
+      }
+    }).catch(function(){
+      err.style.display='block';
+    }).finally(function(){
+      btn.disabled=false;lbl.textContent='ส่ง Feedback →';
+    });
+  });
+}
+var cntEl=document.getElementById('cnt');var cntd=false;
+new IntersectionObserver(function(es){
+  if(es[0].isIntersecting&&!cntd){
+    cntd=true;var t0,tgt=24;
+    requestAnimationFrame(function step(ts){
+      if(!t0)t0=ts;
+      var p=Math.min((ts-t0)/1100,1);
+      cntEl.textContent=Math.floor(p*tgt);
+      if(p<1)requestAnimationFrame(step);else cntEl.textContent=tgt;
+    });
+  }
+},{threshold:.6}).observe(cntEl);
+</script>
+<!-- ══ PRIVACY POLICY MODAL ══ -->
+<div id="privacy-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px">
+  <div style="background:#fff;border-radius:24px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,.2);position:relative">
+
+    <!-- close btn -->
+    <button onclick="document.getElementById('privacy-modal').classList.remove('open')"
+      style="position:sticky;top:16px;float:right;margin:16px 16px 0 0;width:32px;height:32px;border-radius:50%;background:var(--cream2);border:1px solid var(--bd);font-size:16px;color:var(--t2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:1">
+      ✕
+    </button>
+
+    <div style="padding:36px 36px 40px;clear:both">
+
+      <!-- header -->
+      <div style="margin-bottom:28px">
+        <div style="font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">📄 Legal</div>
+        <h2 style="font-family:'Anuphan',sans-serif;font-size:26px;font-weight:700;color:var(--dark);letter-spacing:-.02em;margin-bottom:6px">Privacy Policy</h2>
+        <p style="font-size:13px;color:var(--t3)">อัปเดตล่าสุด: พฤษภาคม 2026</p>
+      </div>
+
+      <!-- intro -->
+      <div style="background:var(--y-l);border-radius:14px;padding:16px 18px;margin-bottom:28px;border-left:4px solid var(--yellow)">
+        <p style="font-size:14px;color:#92400E;line-height:1.65">
+          Patta.me เชื่อในความโปร่งใส เราจะบอกตรงๆ ว่าเก็บข้อมูลอะไร ไม่เก็บอะไร และทำไม
+        </p>
+      </div>
+
+      <!-- sections -->
+      <div style="display:flex;flex-direction:column;gap:24px;font-family:'Sarabun',sans-serif">
+
+        <div>
+          <h3 style="font-family:'Anuphan',sans-serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">1. ข้อมูลที่เราเก็บ</h3>
+          <p style="font-size:14px;color:var(--t2);line-height:1.72;margin-bottom:10px">เราเก็บข้อมูลเท่าที่จำเป็นเท่านั้น แบ่งออกเป็น 2 ส่วน</p>
+          <div style="background:var(--cream2);border-radius:12px;padding:16px 18px">
+            <p style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:6px">✅ ข้อมูลที่ user กรอกเอง (เช่น ใน Jodyub)</p>
+            <ul style="font-size:13px;color:var(--t2);line-height:1.8;padding-left:18px">
+              <li>ชื่อทริป วันที่ จุดหมาย</li>
+              <li>รายการค่าใช้จ่าย และสกุลเงิน</li>
+              <li>ชื่อผู้เดินทาง (กรอกเองโดยไม่ต้องยืนยัน identity)</li>
+            </ul>
+            <p style="font-size:13px;font-weight:700;color:var(--dark);margin-top:12px;margin-bottom:6px">✅ ข้อมูลจาก Feedback Form</p>
+            <ul style="font-size:13px;color:var(--t2);line-height:1.8;padding-left:18px">
+              <li>อีเมล (ถ้ากรอก — ไม่บังคับ)</li>
+              <li>ข้อความ feedback ที่ส่งมา</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-family:'Anuphan',sans-serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">2. ข้อมูลที่เราไม่เก็บ</h3>
+          <div style="background:var(--m-l);border-radius:12px;padding:16px 18px">
+            <ul style="font-size:13px;color:#065F46;line-height:1.9;padding-left:18px">
+              <li>❌ ไม่เก็บรหัสผ่าน — ไม่มีระบบ login</li>
+              <li>❌ ไม่เก็บข้อมูลบัตรเครดิต หรือข้อมูลการเงินส่วนตัว</li>
+              <li>❌ ไม่ติดตาม behavior ด้วย tracking pixel</li>
+              <li>❌ ไม่มีโฆษณา และไม่ขายข้อมูลให้ third party</li>
+              <li>❌ ไม่เก็บ IP address หรือข้อมูล device โดยตรง</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-family:'Anuphan',sans-serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">3. เราเก็บข้อมูลไว้ที่ไหน</h3>
+          <p style="font-size:14px;color:var(--t2);line-height:1.72">
+            ข้อมูลของ Jodyub ถูกเก็บบน <strong>Firebase Realtime Database</strong> ของ Google ซึ่งอยู่ใน Server เขต United States ข้อมูล Feedback Form ถูกส่งผ่าน <strong>Web3Forms</strong> ไปยังอีเมลของทีมงาน
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-family:'Anuphan',sans-serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">4. Trip Code และความเป็นส่วนตัว</h3>
+          <p style="font-size:14px;color:var(--t2);line-height:1.72">
+            ข้อมูลในแต่ละทริปถูกแยกด้วย <strong>Trip Code</strong> — ใครที่มี code นั้นถึงจะเข้าถึงข้อมูลได้ เราแนะนำให้แชร์ Trip Code เฉพาะกับคนในทริปเท่านั้น
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-family:'Anuphan',sans-serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">5. Cookies</h3>
+          <p style="font-size:14px;color:var(--t2);line-height:1.72">
+            Patta.me ใช้ <strong>localStorage</strong> ของ browser เพื่อจำทริปล่าสุดที่เคยเข้าใช้งาน ไม่มีการใช้ tracking cookies หรือ third-party cookies
+          </p>
+        </div>
+
+        <div>
+          <h3 style="font-family:'Anuphan',sans-serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">6. สิทธิ์ของคุณ</h3>
+          <p style="font-size:14px;color:var(--t2);line-height:1.72;margin-bottom:10px">คุณมีสิทธิ์ขอให้ลบข้อมูลทริปของคุณออกจากระบบได้ทุกเมื่อ โดยติดต่อเราที่</p>
+          <a href="mailto:taionthego.co@gmail.com" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--cream2);border:1px solid var(--bd);border-radius:999px;font-size:13px;font-weight:600;color:var(--dark);transition:all .2s">
+            📧 taionthego.co@gmail.com
+          </a>
+        </div>
+
+        <div>
+          <h3 style="font-family:'Anuphan',sans-serif;font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px">7. การเปลี่ยนแปลง Privacy Policy</h3>
+          <p style="font-size:14px;color:var(--t2);line-height:1.72">
+            หาก Privacy Policy มีการเปลี่ยนแปลง เราจะอัปเดตวันที่ด้านบนและแจ้งให้ทราบผ่านหน้าเว็บ
+          </p>
+        </div>
+
+        <!-- closing -->
+        <div style="background:var(--cream2);border-radius:14px;padding:16px 18px;text-align:center;margin-top:4px">
+          <p style="font-size:13px;color:var(--t2);line-height:1.7">
+            หากมีคำถามเพิ่มเติมเกี่ยวกับความเป็นส่วนตัว ติดต่อเราได้เสมอ 😊
+            <strong style="color:var(--dark)">Patta.me</strong> — Made to make life a little easier
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// modal open/close
+var pm = document.getElementById('privacy-modal');
+pm.addEventListener('click', function(e){ if(e.target===this) this.classList.remove('open'); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') pm.classList.remove('open'); });
+</script>
+
+</body>
+</html>
