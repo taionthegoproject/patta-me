@@ -4,6 +4,30 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Patta.me — ลดเรื่องให้คิด ใช้ชีวิตให้มากขึ้น</title>
+
+<!-- SEO -->
+<meta name="description" content="จุดเริ่มต้นของคนไม่อยากเสียเงิน เว็บที่รวม Tools ต่างๆ ให้ใช้ฟรี ไม่ต้องสมัคร ไม่มีโฆษณา">
+<meta name="keywords" content="tools ฟรี, jodyub, trip expense, travel tools, patta.me">
+<meta name="author" content="Patta.me">
+
+<!-- Open Graph (Facebook, LINE, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://taionthegoproject.github.io/patta-me">
+<meta property="og:title" content="Patta.me — จุดเริ่มต้นของคนไม่อยากเสียเงิน">
+<meta property="og:description" content="เว็บที่รวม Tools ต่างๆ ให้ใช้ฟรี ไม่ต้องสมัคร ไม่มีโฆษณา เริ่มต้นด้วย Jodyub ตัวช่วยจดค่าใช้จ่ายทริป">
+<meta property="og:image" content="https://taionthegoproject.github.io/patta-me/og-image.png">
+<meta property="og:locale" content="th_TH">
+<meta property="og:site_name" content="Patta.me">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Patta.me — จุดเริ่มต้นของคนไม่อยากเสียเงิน">
+<meta name="twitter:description" content="เว็บที่รวม Tools ต่างๆ ให้ใช้ฟรี ไม่ต้องสมัคร ไม่มีโฆษณา">
+<meta name="twitter:image" content="https://taionthegoproject.github.io/patta-me/og-image.png">
+
+<!-- LINE -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -443,8 +467,15 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
     </ul>
     <div style="display:flex;align-items:center;gap:10px">
       <a href="https://taionthegoproject.github.io/jodyub" target="_blank" class="nav-cta">เปิด Jodyub →</a>
-      <button class="nav-burger">☰</button>
+      <button class="nav-burger" id="nav-burger" onclick="toggleMenu()">☰</button>
     </div>
+  </div>
+  <!-- mobile dropdown -->
+  <div id="mobile-menu" style="display:none;max-width:1100px;margin:0 auto;padding:8px 0 16px">
+    <a href="#eco" onclick="closeMenu()" style="display:block;padding:12px 16px;font-size:15px;font-weight:500;color:var(--t2);border-radius:var(--r);transition:background .15s" onmouseover="this.style.background='var(--cream2)'" onmouseout="this.style.background='transparent'">Tools</a>
+    <a href="#cols" onclick="closeMenu()" style="display:block;padding:12px 16px;font-size:15px;font-weight:500;color:var(--t2);border-radius:var(--r);transition:background .15s" onmouseover="this.style.background='var(--cream2)'" onmouseout="this.style.background='transparent'">Collections</a>
+    <a href="#why" onclick="closeMenu()" style="display:block;padding:12px 16px;font-size:15px;font-weight:500;color:var(--t2);border-radius:var(--r);transition:background .15s" onmouseover="this.style.background='var(--cream2)'" onmouseout="this.style.background='transparent'">About</a>
+    <a href="#feedback" onclick="closeMenu()" style="display:block;padding:12px 16px;font-size:15px;font-weight:500;color:var(--t2);border-radius:var(--r);transition:background .15s" onmouseover="this.style.background='var(--cream2)'" onmouseout="this.style.background='transparent'">Feedback</a>
   </div>
 </nav>
 
@@ -877,6 +908,31 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 // navbar
 var nav=document.getElementById('nav');
 window.addEventListener('scroll',function(){nav.classList.toggle('on',scrollY>16)},{passive:true});
+
+// mobile menu
+function toggleMenu(){
+  var m=document.getElementById('mobile-menu');
+  var b=document.getElementById('nav-burger');
+  var open=m.style.display==='block';
+  m.style.display=open?'none':'block';
+  b.textContent=open?'☰':'✕';
+  nav.classList.add('on');
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').style.display='none';
+  document.getElementById('nav-burger').textContent='☰';
+}
+// smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var target=document.querySelector(this.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      closeMenu();
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+});
 
 // reveal
 var rvs=document.querySelectorAll('.rv');
