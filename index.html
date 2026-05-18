@@ -183,7 +183,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 .hero-grid{
   display:grid;grid-template-columns:1fr 1fr;
   gap:48px;align-items:center;
-  padding:72px 0 88px;position:relative;z-index:1;
+  padding:52px 0 64px;position:relative;z-index:1;
 }
 
 /* left */
@@ -211,7 +211,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 
 /* right — ecosystem visual */
 .hero-vis{
-  position:relative;height:520px;
+  position:relative;height:420px;
   display:flex;align-items:center;justify-content:center;
   animation:up .7s ease .1s both;
 }
@@ -520,18 +520,52 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
   <div class="w">
     <div class="hero-grid">
 
-      <!-- LEFT -->
+      <!-- LEFT: text -->
       <div>
         <div class="hero-pill">
           <span class="pd"></span>
           Free tools · ไม่ต้องสมัคร · ใช้ได้เลย
         </div>
         <h1 class="hero-h1">ลดเรื่องให้คิด<br>ใช้ชีวิตให้ <mark>ง่ายขึ้น</mark></h1>
-        <p class="hero-sub">รวมเครื่องมือฟรี สำหรับชีวิตประจำวัน<br>เริ่มต้นด้วย Jodyub — ตัวช่วยจดค่าใช้จ่ายทริปแบบง่ายๆ</p>
-        <div class="hero-btns">
-          <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="btn btn-dark">เริ่มใช้ Jodyub →</a>
-          <a href="#eco" class="btn btn-ghost">ดู tools ทั้งหมด</a>
+        <p class="hero-sub">รวมเครื่องมือฟรี สำหรับชีวิตประจำวัน<br>เริ่มใช้ได้เลย ไม่ต้องสมัคร ไม่มีโฆษณา</p>
+
+        <!-- tool cards — คลิกได้ -->
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+
+          <!-- Jodyub card -->
+          <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer"
+            style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);transition:all .22s cubic-bezier(.34,1.56,.64,1);text-decoration:none;"
+            onmouseover="this.style.borderColor='var(--dark)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--sh)'"
+            onmouseout="this.style.borderColor='var(--bd)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+            <div style="width:40px;height:40px;border-radius:12px;background:var(--y-l);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">💰</div>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:3px;">
+                <span style="font-family:'Anuphan',sans-serif;font-size:15px;font-weight:700;color:var(--dark);">Jodyub</span>
+                <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:var(--p);background:var(--m-l);color:#065F46;">● Live</span>
+              </div>
+              <div style="font-size:12px;color:var(--t2);">หารค่าใช้จ่ายทริป · Multi Currency · แชร์ลิงก์ได้</div>
+            </div>
+            <div style="font-size:16px;color:var(--t3);flex-shrink:0;">→</div>
+          </a>
+
+          <!-- Patta Go card -->
+          <a href="https://go.patta.me" target="_blank" rel="noopener noreferrer"
+            style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);transition:all .22s cubic-bezier(.34,1.56,.64,1);text-decoration:none;"
+            onmouseover="this.style.borderColor='var(--dark)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--sh)'"
+            onmouseout="this.style.borderColor='var(--bd)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+            <div style="width:40px;height:40px;border-radius:12px;background:var(--y-l);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">✂️</div>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:3px;">
+                <span style="font-family:'Anuphan',sans-serif;font-size:15px;font-weight:700;color:var(--dark);">Patta Go</span>
+                <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:var(--p);background:var(--m-l);color:#065F46;">● Live</span>
+              </div>
+              <div style="font-size:12px;color:var(--t2);">Short URL · กำหนด slug เอง · นับ clicks อัตโนมัติ</div>
+            </div>
+            <div style="font-size:16px;color:var(--t3);flex-shrink:0;">→</div>
+          </a>
+
         </div>
+
         <div class="hero-trust">
           <span class="ti">✓ ฟรี 100%</span>
           <span class="ts"></span>
@@ -541,10 +575,9 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
         </div>
       </div>
 
-      <!-- RIGHT: ECOSYSTEM VISUAL -->
+      <!-- RIGHT: ecosystem visual (Jodyub center + floating cards) -->
       <div class="hero-vis">
 
-        <!-- CENTER: Jodyub card -->
         <div class="eco-jodyub">
           <div class="ej-hd">
             <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
@@ -554,10 +587,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
           <div class="ej-screen">
             <div class="ejs-hd">
               <div class="ejs-trip">Korea Trip 🇰🇷</div>
-              <div>
-                <div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">รวม</div>
-                <div class="ejs-amt">₩842K</div>
-              </div>
+              <div><div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">รวม</div><div class="ejs-amt">₩842K</div></div>
             </div>
             <div class="ejs-rows">
               <div class="ejs-row"><div class="ejs-dot" style="background:#4ADE80"></div><div class="ejs-n">Food</div><div class="ejs-v" style="color:#4ADE80">₩35K</div></div>
@@ -574,14 +604,11 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
           </div>
         </div>
 
-        <!-- MINI CARDS: other tools -->
+        <!-- floating mini cards -->
         <div class="mini m1">
-          <div class="mini-label">🎒 PackList</div>
-          <div style="display:flex;flex-direction:column;gap:3px;margin-top:2px">
-            <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t2)"><span>☑️</span> Passport</div>
-            <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t2)"><span>☑️</span> Charger</div>
-            <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:var(--t3)"><span>◻️</span> Adapter</div>
-          </div>
+          <div class="mini-label">🎉 Settlement</div>
+          <div class="mini-row"><div class="mini-dot" style="background:var(--mint)"></div><span style="font-size:11px;color:var(--t2)">Person A</span><span style="font-size:11px;font-weight:700;color:var(--dark);margin-left:auto">฿13,312</span></div>
+          <div class="mini-row"><div class="mini-dot" style="background:var(--lav)"></div><span style="font-size:11px;color:var(--t2)">Person B</span><span style="font-size:11px;font-weight:700;color:var(--dark);margin-left:auto">฿8,580</span></div>
         </div>
 
         <div class="mini m2">
@@ -590,54 +617,26 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
           <div style="font-size:11px;color:var(--t3);margin-top:2px">= ฿26.00</div>
         </div>
 
-        <div class="mini m3">
-          <div class="mini-label">🎉 Settlement</div>
-          <div class="mini-row"><div class="mini-dot" style="background:var(--mint)"></div><span style="font-size:11px;color:var(--t2)">Person A</span><span style="font-size:11px;font-weight:700;color:var(--dark);margin-left:auto">฿13,312</span></div>
-          <div class="mini-row"><div class="mini-dot" style="background:var(--lav)"></div><span style="font-size:11px;color:var(--t2)">Person B</span><span style="font-size:11px;font-weight:700;color:var(--dark);margin-left:auto">฿8,580</span></div>
+        <!-- Patta Go mini card -->
+        <div class="mini m3" style="padding:11px 14px;">
+          <div class="mini-label">✂️ Patta Go</div>
+          <div style="font-size:12px;font-weight:700;color:var(--dark);font-family:monospace;margin:3px 0">go.patta.me/?r=japan</div>
+          <div style="display:flex;align-items:center;gap:5px;margin-top:4px;">
+            <span style="width:5px;height:5px;border-radius:50%;background:var(--mint);animation:ping 2s ease-in-out infinite;"></span>
+            <span style="font-size:10px;color:var(--t2)">128 clicks</span>
+          </div>
         </div>
 
         <div class="mini m4">
           <div class="mini-label">⏱ Focus Timer</div>
           <div style="font-size:20px;font-weight:800;color:var(--dark);text-align:center;letter-spacing:1px">25:00</div>
-          <div style="font-size:9px;color:var(--t3);text-align:center;margin-top:2px">Deep Work Session</div>
+          <div style="font-size:9px;color:var(--t3);text-align:center;margin-top:2px">Deep Work</div>
         </div>
 
-        <div class="mini m5" style="padding:9px 12px">
-          <div style="display:flex;align-items:center;gap:7px">
-            <span style="font-size:16px">📅</span>
-            <div>
-              <div style="font-size:11px;font-weight:700;color:var(--dark)">Countdown</div>
-              <div style="font-size:9px;color:var(--t3)">14 days to trip!</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- MASCOTS -->
-        <div class="mas mas1">
-          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-            <polygon points="26,3 31,18 47,18 34,28 39,44 26,33 13,44 18,28 5,18 21,18" fill="#FDE68A" stroke="#1A1A1A" stroke-width="1.6"/>
-            <circle cx="21" cy="21" r="2.2" fill="#1A1A1A"/>
-            <circle cx="31" cy="21" r="2.2" fill="#1A1A1A"/>
-            <path d="M21 27 Q26 31 31 27" stroke="#1A1A1A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="mas mas2">
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-            <ellipse cx="22" cy="25" rx="18" ry="16" fill="#C4B5FD" stroke="#1A1A1A" stroke-width="1.5"/>
-            <circle cx="16" cy="20" r="2.8" fill="#1A1A1A"/><circle cx="28" cy="20" r="2.8" fill="#1A1A1A"/>
-            <circle cx="16.8" cy="19.2" r="1.1" fill="#fff"/><circle cx="28.8" cy="19.2" r="1.1" fill="#fff"/>
-            <path d="M16 27 Q22 32 28 27" stroke="#1A1A1A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-            <ellipse cx="13" cy="28" rx="2.8" ry="1.8" fill="rgba(249,168,201,.7)"/>
-            <ellipse cx="31" cy="28" rx="2.8" ry="1.8" fill="rgba(249,168,201,.7)"/>
-          </svg>
-        </div>
-        <div class="mas mas3">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-            <circle cx="18" cy="18" r="15" fill="#6EE7B7" stroke="#1A1A1A" stroke-width="1.4"/>
-            <circle cx="13" cy="14" r="2.3" fill="#1A1A1A"/><circle cx="23" cy="14" r="2.3" fill="#1A1A1A"/>
-            <path d="M13 21 Q18 25 23 21" stroke="#1A1A1A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <!-- mascots -->
+        <div class="mas mas1"><svg width="52" height="52" viewBox="0 0 52 52"><polygon points="26,3 31,18 47,18 34,28 39,44 26,33 13,44 18,28 5,18 21,18" fill="#FDE68A" stroke="#1A1A1A" stroke-width="1.6"/><circle cx="21" cy="21" r="2.2" fill="#1A1A1A"/><circle cx="31" cy="21" r="2.2" fill="#1A1A1A"/><path d="M21 27 Q26 31 31 27" stroke="#1A1A1A" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="mas mas2"><svg width="44" height="44" viewBox="0 0 44 44"><ellipse cx="22" cy="25" rx="18" ry="16" fill="#C4B5FD" stroke="#1A1A1A" stroke-width="1.5"/><circle cx="16" cy="20" r="2.8" fill="#1A1A1A"/><circle cx="28" cy="20" r="2.8" fill="#1A1A1A"/><circle cx="16.8" cy="19.2" r="1.1" fill="#fff"/><circle cx="28.8" cy="19.2" r="1.1" fill="#fff"/><path d="M16 27 Q22 32 28 27" stroke="#1A1A1A" stroke-width="1.5" fill="none" stroke-linecap="round"/><ellipse cx="13" cy="28" rx="2.8" ry="1.8" fill="rgba(249,168,201,.7)"/><ellipse cx="31" cy="28" rx="2.8" ry="1.8" fill="rgba(249,168,201,.7)"/></svg></div>
+        <div class="mas mas3"><svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15" fill="#6EE7B7" stroke="#1A1A1A" stroke-width="1.4"/><circle cx="13" cy="14" r="2.3" fill="#1A1A1A"/><circle cx="23" cy="14" r="2.3" fill="#1A1A1A"/><path d="M13 21 Q18 25 23 21" stroke="#1A1A1A" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></div>
 
       </div>
     </div>
@@ -723,6 +722,83 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
   </div>
 </section>
 
+<!-- ══ PATTA GO SECTION ══ -->
+<section id="go-section" style="padding:100px 0;background:var(--cream2);border-top:1px solid var(--bd2);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 40% at 80% 50%,rgba(245,200,74,.08) 0%,transparent 60%);"></div>
+  <div class="w">
+    <div class="feat-grid">
+      <div class="rv">
+        <div class="ey" style="background:var(--y-l);color:#92400E">✂️ Short URL</div>
+        <h2 class="sec-h">Patta Go</h2>
+        <p class="sec-b">ย่อ URL ยาวให้สั้น กำหนด slug เอง นับ clicks อัตโนมัติ ใช้ได้เดี๋ยวนี้เลย ไม่ต้องสมัครสมาชิก</p>
+        <div class="feat-checks">
+          <div class="fck"><div class="fck-i">✓</div>กำหนด slug เองได้ เช่น go.patta.me/japan</div>
+          <div class="fck"><div class="fck-i">✓</div>นับ clicks real-time ดูสถิติได้ทันที</div>
+          <div class="fck"><div class="fck-i">✓</div>ลบ link ได้ง่ายๆ กด confirm เดียวจบ</div>
+          <div class="fck"><div class="fck-i">✓</div>ใช้ได้บนมือถือ ไม่ต้องโหลดแอป</div>
+        </div>
+        <div class="fc-hl">
+          <span class="chip cy">Custom Slug</span>
+          <span class="chip cm">Click Tracking</span>
+          <span class="chip cd">Free to Use</span>
+          <span class="chip cs">ไม่จำกัด Links</span>
+        </div>
+        <a href="https://go.patta.me" target="_blank" rel="noopener noreferrer" class="btn btn-dark">เปิด go.patta.me →</a>
+      </div>
+      <div class="rv d1">
+        <!-- Go mockup widget -->
+        <div style="background:#fff;border-radius:var(--rg);border:1px solid var(--bd);box-shadow:var(--shl);overflow:hidden;">
+          <div style="background:var(--cream2);padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--bd2);">
+            <div class="bd" style="background:#FF5F57"></div>
+            <div class="bd" style="background:#FEBC2E"></div>
+            <div class="bd" style="background:#28C840"></div>
+            <div class="brow-url">go.patta.me</div>
+          </div>
+          <div style="padding:20px;">
+            <!-- create form -->
+            <div style="border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-bottom:16px;">
+              <div style="padding:11px 14px;border-bottom:1px solid var(--bd2);">
+                <div style="font-size:10px;color:var(--t3);font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;">URL ที่อยากย่อ</div>
+                <div style="font-size:12px;color:var(--t3);">https://very-long-website.com/path/to/page?ref=abc123</div>
+              </div>
+              <div style="padding:11px 14px;border-bottom:1px solid var(--bd2);display:flex;align-items:center;gap:6px;">
+                <span style="font-size:12px;color:var(--t3);white-space:nowrap;">go.patta.me/</span>
+                <span style="font-size:13px;font-weight:700;color:var(--dark);">japan</span>
+              </div>
+              <div style="padding:11px 14px;background:var(--dark);text-align:center;">
+                <span style="font-size:13px;font-weight:600;color:#fff;">สร้าง Short Link →</span>
+              </div>
+            </div>
+            <!-- result -->
+            <div style="background:var(--m-l);border:1px solid rgba(110,231,183,.2);border-radius:var(--r);padding:13px 15px;margin-bottom:16px;">
+              <div style="font-size:10px;color:#065F46;font-weight:700;margin-bottom:6px;">✅ สร้างสำเร็จ!</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+                <span style="font-size:13px;font-weight:700;color:var(--dark);font-family:monospace;">go.patta.me/?r=japan</span>
+                <span style="font-size:10px;padding:3px 10px;border-radius:var(--p);background:#fff;border:1px solid var(--bd);color:var(--t2);">คัดลอก</span>
+              </div>
+            </div>
+            <!-- stats row -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+              <div style="background:var(--cream);border:1px solid var(--bd);border-radius:var(--r);padding:10px;text-align:center;">
+                <div style="font-size:16px;font-weight:800;color:var(--dark);">42</div>
+                <div style="font-size:9px;color:var(--t3);margin-top:2px;">Links</div>
+              </div>
+              <div style="background:var(--cream);border:1px solid var(--bd);border-radius:var(--r);padding:10px;text-align:center;">
+                <div style="font-size:16px;font-weight:800;color:var(--dark);">1.2K</div>
+                <div style="font-size:9px;color:var(--t3);margin-top:2px;">Clicks</div>
+              </div>
+              <div style="background:var(--cream);border:1px solid var(--bd);border-radius:var(--r);padding:10px;text-align:center;">
+                <div style="font-size:16px;font-weight:800;color:var(--dark);">8</div>
+                <div style="font-size:9px;color:var(--t3);margin-top:2px;">วันนี้</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ ECOSYSTEM ══ -->
 <section id="eco">
   <div class="w">
@@ -731,10 +807,14 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
       <h2 class="sec-h">เครื่องมืออื่นๆ<br>กำลังมา</h2>
       <p class="sec-b">Jodyub เป็นแค่จุดเริ่มต้น Patta.me กำลังสร้าง tools อื่นๆ เพื่อทำให้ชีวิตประจำวันง่ายขึ้น</p>
     </div>
-    <div class="eco-grid rv">
+    <div class="eco-grid rv" style="grid-template-columns:repeat(3,1fr);">
       <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="tc live" data-c="travel finance">
         <div class="tc-top"><div class="tc-icon" style="background:var(--y-l)">💰</div><span class="tc-st" style="background:var(--m-l);color:#065F46">● Live</span></div>
         <div class="tc-body"><div class="tn">Jodyub</div><div class="td">บันทึกค่าใช้จ่ายทริป แชร์กับเพื่อน หารเงินง่ายๆ</div><div class="tc-tags"><span class="tt">✈️ ท่องเที่ยว</span><span class="tt">💱 Multi Currency</span></div></div>
+      </a>
+      <a href="https://go.patta.me" target="_blank" rel="noopener noreferrer" class="tc live" data-c="productivity">
+        <div class="tc-top"><div class="tc-icon" style="background:var(--y-l)">✂️</div><span class="tc-st" style="background:var(--m-l);color:#065F46">● Live</span></div>
+        <div class="tc-body"><div class="tn">Patta Go</div><div class="td">ย่อ URL ให้สั้น กำหนด slug เอง นับ clicks ฟรีไม่จำกัด</div><div class="tc-tags"><span class="tt">🔗 Short URL</span><span class="tt">📊 Click Tracking</span></div></div>
       </a>
       <div class="tc" data-c="travel finance">
         <div class="tc-top"><div class="tc-icon" style="background:var(--m-l)">💱</div><span class="tc-st" style="background:var(--cream3);color:var(--t3)">เร็วๆ นี้</span></div>
@@ -748,13 +828,9 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
         <div class="tc-top"><div class="tc-icon" style="background:#FEE2E2">🍅</div><span class="tc-st" style="background:var(--cream3);color:var(--t3)">เร็วๆ นี้</span></div>
         <div class="tc-body"><div class="tn">Focus Timer</div><div class="td">จับเวลา Pomodoro ช่วยให้โฟกัสได้ดีขึ้น</div><div class="tc-tags"><span class="tt">⚡ Productivity</span><span class="tt">⏱ Timer</span></div></div>
       </div>
-      <div class="tc" data-c="everyday">
-        <div class="tc-top"><div class="tc-icon" style="background:var(--l-l)">📅</div><span class="tc-st" style="background:var(--cream3);color:var(--t3)">เร็วๆ นี้</span></div>
-        <div class="tc-body"><div class="tn">Countdown</div><div class="td">นับถอยหลังวันสำคัญ วันหยุด วันเกิด</div><div class="tc-tags"><span class="tt">🌟 ชีวิตประจำวัน</span></div></div>
-      </div>
       <div class="tc tc-sug">
         <div class="tc-top"><div class="tc-icon" style="background:var(--cream2)">💡</div></div>
-        <div class="tc-body"><div class="tn" style="color:var(--t3)">เสนอ Tool</div><div class="td" style="color:var(--t3)">อยากให้มี tools อะไร? บอกเราได้เลย!</div><a href="#" class="btn btn-ghost" style="padding:7px 16px;font-size:12px;display:inline-flex;margin-top:6px">ส่งไอเดีย →</a></div>
+        <div class="tc-body"><div class="tn" style="color:var(--t3)">เสนอ Tool</div><div class="td" style="color:var(--t3)">อยากให้มี tools อะไร? บอกเราได้เลย!</div><a href="#feedback" class="btn btn-ghost" style="padding:7px 16px;font-size:12px;display:inline-flex;margin-top:6px">ส่งไอเดีย →</a></div>
       </div>
     </div>
   </div>
@@ -892,7 +968,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
       <p class="cta-s">ใช้ฟรี ไม่ต้องสมัคร · เปิดเว็บแล้วใช้ได้เลย</p>
       <div class="cta-btns">
         <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="btn btn-y">ลองใช้ Jodyub →</a>
-        <a href="#eco" class="btn btn-glass">ดู tools ทั้งหมด</a>
+        <a href="https://go.patta.me" target="_blank" rel="noopener noreferrer" class="btn btn-glass">สร้าง Short Link ✂️</a>
       </div>
     </div>
   </div>
@@ -910,10 +986,10 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
       <div class="foot-col">
         <h5>Tools</h5>
         <ul class="foot-links">
-          <li><a href="#">Jodyub</a></li>
+          <li><a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer">Jodyub</a></li>
+          <li><a href="https://go.patta.me" target="_blank" rel="noopener noreferrer">Patta Go</a></li>
           <li><a href="#">ConvertGo</a></li>
           <li><a href="#">PackList</a></li>
-          <li><a href="#">Focus Timer</a></li>
         </ul>
       </div>
       <div class="foot-col">
