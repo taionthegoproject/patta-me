@@ -162,6 +162,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 .nav-links a:hover{background:var(--cream2);color:var(--text)}
 .nav-cta{padding:9px 20px;border-radius:var(--p);background:var(--dark);color:#fff;font-size:13px;font-weight:600;transition:all .22s cubic-bezier(.34,1.56,.64,1)}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,26,26,.22)}
+@media(max-width:760px){.nav-cta-2{display:none}}
 .nav-burger{display:none;padding:6px 10px;border-radius:var(--r);background:var(--cream2);font-size:17px}
 
 /* ══════════════════════════════════
@@ -211,7 +212,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 
 /* right — ecosystem visual */
 .hero-vis{
-  position:relative;height:420px;
+  position:relative;height:600px;
   display:flex;align-items:center;justify-content:center;
   animation:up .7s ease .1s both;
 }
@@ -468,7 +469,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
   .hero-grid{text-align:center;padding:52px 0 64px}
   .hero-btns,.hero-trust{justify-content:center}
   .hero-sub{margin:0 auto 32px}
-  .hero-vis{height:380px}
+  .hero-vis{height:540px}
   .eco-jodyub{width:220px}
   .nav-links{display:none}
   .nav-burger{display:flex}
@@ -484,7 +485,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
   .hero-h1{font-size:36px}
   .mini{display:none}
   .mas{display:none}
-  .hero-vis{height:320px}
+  .hero-vis{height:460px}
   .eco-jodyub{width:200px}
 }
 </style>
@@ -502,7 +503,8 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
       <li><a href="#feedback">Feedback</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:10px">
-      <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="nav-cta">เปิด Jodyub →</a>
+      <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer" class="nav-cta">เปิด I love my job →</a>
+      <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="nav-cta nav-cta-2">เปิด Jodyub →</a>
       <button class="nav-burger" id="nav-burger" onclick="toggleMenu()">☰</button>
     </div>
   </div>
@@ -531,6 +533,22 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 
         <!-- tool cards — คลิกได้ -->
         <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+
+          <!-- I love my job card -->
+          <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer"
+            style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);transition:all .22s cubic-bezier(.34,1.56,.64,1);text-decoration:none;"
+            onmouseover="this.style.borderColor='var(--dark)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--sh)'"
+            onmouseout="this.style.borderColor='var(--bd)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+            <div style="width:40px;height:40px;border-radius:12px;background:var(--l-l);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">❤️</div>
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:7px;margin-bottom:3px;">
+                <span style="font-family:'Anuphan',sans-serif;font-size:15px;font-weight:700;color:var(--dark);">I love my job</span>
+                <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:var(--p);background:var(--m-l);color:#065F46;">● Live</span>
+              </div>
+              <div style="font-size:12px;color:var(--t2);">จดบันทึกงานทีม · สร้างทีมได้เอง · Sync แบบเรียลไทม์</div>
+            </div>
+            <div style="font-size:16px;color:var(--t3);flex-shrink:0;">→</div>
+          </a>
 
           <!-- Jodyub card -->
           <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer"
@@ -591,33 +609,63 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
         </div>
       </div>
 
-      <!-- RIGHT: ecosystem visual (Jodyub center + floating cards) -->
+      <!-- RIGHT: ecosystem visual (I love my job + Jodyub featured, floating cards) -->
       <div class="hero-vis">
 
-        <div class="eco-jodyub">
-          <div class="ej-hd">
-            <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
-            <div class="ej-name">Jodyub 💰</div>
-            <div class="ej-sub">Trip Expense Tracker</div>
-          </div>
-          <div class="ej-screen">
-            <div class="ejs-hd">
-              <div class="ejs-trip">Korea Trip 🇰🇷</div>
-              <div><div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">รวม</div><div class="ejs-amt">₩842K</div></div>
+        <div style="display:flex;flex-direction:column;gap:16px;align-items:center;">
+
+          <div class="eco-jodyub">
+            <div class="ej-hd">
+              <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
+              <div class="ej-name">I love my job ❤️</div>
+              <div class="ej-sub">Team Work Tracker</div>
             </div>
-            <div class="ejs-rows">
-              <div class="ejs-row"><div class="ejs-dot" style="background:#4ADE80"></div><div class="ejs-n">Food</div><div class="ejs-v" style="color:#4ADE80">₩35K</div></div>
-              <div class="ejs-row"><div class="ejs-dot" style="background:#F472B6"></div><div class="ejs-n">Aesthetic</div><div class="ejs-v" style="color:#F472B6">₩350K</div></div>
-              <div class="ejs-row"><div class="ejs-dot" style="background:#C084FC"></div><div class="ejs-n">Shopping</div><div class="ejs-v" style="color:#C084FC">₩89K</div></div>
+            <div class="ej-screen">
+              <div class="ejs-hd">
+                <div class="ejs-trip">I ❤ my job</div>
+                <div><div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">total</div><div class="ejs-amt">128</div></div>
+              </div>
+              <div class="ejs-rows">
+                <div class="ejs-row"><div class="ejs-dot" style="background:#C4B5FD"></div><div class="ejs-n">Content</div><div class="ejs-v" style="color:#C4B5FD">78%</div></div>
+                <div class="ejs-row"><div class="ejs-dot" style="background:#F9A8C9"></div><div class="ejs-n">Customer</div><div class="ejs-v" style="color:#F9A8C9">52%</div></div>
+                <div class="ejs-row"><div class="ejs-dot" style="background:#C7F464"></div><div class="ejs-n">Campaign</div><div class="ejs-v" style="color:#C7F464">90%</div></div>
+              </div>
+            </div>
+            <div class="ej-cta">
+              <div style="display:flex;gap:5px;flex-wrap:wrap">
+                <span class="chip cl" style="font-size:9px;padding:3px 8px">Multi-team</span>
+                <span class="chip cd" style="font-size:9px;padding:3px 8px">Free</span>
+              </div>
+              <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer" class="ej-cta-btn">ใช้เลย →</a>
             </div>
           </div>
-          <div class="ej-cta">
-            <div style="display:flex;gap:5px;flex-wrap:wrap">
-              <span class="chip cm" style="font-size:9px;padding:3px 8px">Multi Currency</span>
-              <span class="chip cy" style="font-size:9px;padding:3px 8px">Free</span>
+
+          <div class="eco-jodyub">
+            <div class="ej-hd">
+              <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
+              <div class="ej-name">Jodyub 💰</div>
+              <div class="ej-sub">Trip Expense Tracker</div>
             </div>
-            <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="ej-cta-btn">ใช้เลย →</a>
+            <div class="ej-screen">
+              <div class="ejs-hd">
+                <div class="ejs-trip">Korea Trip 🇰🇷</div>
+                <div><div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">รวม</div><div class="ejs-amt">₩842K</div></div>
+              </div>
+              <div class="ejs-rows">
+                <div class="ejs-row"><div class="ejs-dot" style="background:#4ADE80"></div><div class="ejs-n">Food</div><div class="ejs-v" style="color:#4ADE80">₩35K</div></div>
+                <div class="ejs-row"><div class="ejs-dot" style="background:#F472B6"></div><div class="ejs-n">Aesthetic</div><div class="ejs-v" style="color:#F472B6">₩350K</div></div>
+                <div class="ejs-row"><div class="ejs-dot" style="background:#C084FC"></div><div class="ejs-n">Shopping</div><div class="ejs-v" style="color:#C084FC">₩89K</div></div>
+              </div>
+            </div>
+            <div class="ej-cta">
+              <div style="display:flex;gap:5px;flex-wrap:wrap">
+                <span class="chip cm" style="font-size:9px;padding:3px 8px">Multi Currency</span>
+                <span class="chip cy" style="font-size:9px;padding:3px 8px">Free</span>
+              </div>
+              <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="ej-cta-btn">ใช้เลย →</a>
+            </div>
           </div>
+
         </div>
 
         <!-- floating mini cards -->
@@ -686,6 +734,69 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 </div>
 
 <!-- ══ FEATURED ══ -->
+<!-- ══ I LOVE MY JOB SECTION ══ -->
+<section id="ilm-section" style="padding:100px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 40% at 20% 50%,rgba(196,181,253,.12) 0%,transparent 60%);"></div>
+  <div class="w">
+    <div class="feat-grid">
+      <div class="rv">
+        <div class="ey" style="background:var(--l-l);color:#5B21B6">❤️ Team Tracker</div>
+        <h2 class="sec-h">I love my job</h2>
+        <p class="sec-b">ทำงานแทบตาย เจ้านายไม่เห็น? มาลองใช้ I love my job เครื่องมือจดบันทึกงาน ชวนทีมใช้ร่วมกันได้ ใช้ฟรี ใช้งานง่าย</p>
+        <div class="feat-checks">
+          <div class="fck"><div class="fck-i">✓</div>สร้างทีมได้เอง ไม่ต้องรอ IT ทำให้</div>
+          <div class="fck"><div class="fck-i">✓</div>เชิญเพื่อนร่วมทีมด้วยโค้ดทีมหรือลิงก์เชิญ</div>
+          <div class="fck"><div class="fck-i">✓</div>บันทึกงาน ดู Dashboard แบบเรียลไทม์</div>
+          <div class="fck"><div class="fck-i">✓</div>ใช้ได้บนมือถือ ไม่ต้องโหลดแอป</div>
+        </div>
+        <div class="fc-hl">
+          <span class="chip cl">Multi-team</span>
+          <span class="chip cm">Real-time Sync</span>
+          <span class="chip cd">Free to Use</span>
+          <span class="chip cp">มีคู่มือละเอียด</span>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer" class="btn btn-dark">เริ่มใช้งานฟรี →</a>
+          <a href="https://ilovemyjob.patta.me/guide.html" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">📖 ดูคู่มือการใช้งาน</a>
+        </div>
+      </div>
+      <div class="rv d1">
+        <div class="brow">
+          <div class="brow-bar">
+            <div class="bd" style="background:#FF5F57"></div>
+            <div class="bd" style="background:#FEBC2E"></div>
+            <div class="bd" style="background:#28C840"></div>
+            <div class="brow-url">ilovemyjob.patta.me</div>
+          </div>
+          <div class="brow-body">
+            <div class="bb-h">
+              <div class="bb-hr">
+                <div><div class="bb-hn">I ❤ my job</div><div style="font-size:9px;color:rgba(255,255,255,.3);margin-top:2px">Look what we've been doing.</div></div>
+              </div>
+              <div style="font-size:34px;font-weight:800;color:#C7F464;line-height:1;margin-top:10px">128</div>
+              <div class="bb-hl" style="margin-top:4px">TOTAL JOBS</div>
+            </div>
+            <div style="background:#16163A;border-radius:12px;padding:13px 15px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div style="flex:1;height:7px;border-radius:5px;background:rgba(255,255,255,.08);overflow:hidden"><span style="display:block;height:100%;width:78%;background:#C4B5FD;border-radius:5px"></span></div>
+                <div style="font-size:10px;color:rgba(255,255,255,.4)">Content</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <div style="flex:1;height:7px;border-radius:5px;background:rgba(255,255,255,.08);overflow:hidden"><span style="display:block;height:100%;width:52%;background:#F9A8C9;border-radius:5px"></span></div>
+                <div style="font-size:10px;color:rgba(255,255,255,.4)">Customer</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <div style="flex:1;height:7px;border-radius:5px;background:rgba(255,255,255,.08);overflow:hidden"><span style="display:block;height:100%;width:90%;background:#C7F464;border-radius:5px"></span></div>
+                <div style="font-size:10px;color:rgba(255,255,255,.4)">Campaign</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="feat">
   <div class="w">
     <div class="feat-grid">
@@ -824,6 +935,10 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
       <p class="sec-b">Jodyub เป็นแค่จุดเริ่มต้น Patta.me กำลังสร้าง tools อื่นๆ เพื่อทำให้ชีวิตประจำวันง่ายขึ้น</p>
     </div>
     <div class="eco-grid rv" style="grid-template-columns:repeat(3,1fr);">
+      <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer" class="tc live" data-c="productivity">
+        <div class="tc-top"><div class="tc-icon" style="background:var(--l-l)">❤️</div><span class="tc-st" style="background:var(--m-l);color:#065F46">● Live</span></div>
+        <div class="tc-body"><div class="tn">I love my job</div><div class="td">จดบันทึกงานทีม สร้างทีมเองได้ฟรี เห็นผลแบบเรียลไทม์</div><div class="tc-tags"><span class="tt">👥 Team Tracker</span><span class="tt">⚡ Real-time</span></div></div>
+      </a>
       <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="tc live" data-c="travel finance">
         <div class="tc-top"><div class="tc-icon" style="background:var(--y-l)">💰</div><span class="tc-st" style="background:var(--m-l);color:#065F46">● Live</span></div>
         <div class="tc-body"><div class="tn">Jodyub</div><div class="td">บันทึกค่าใช้จ่ายทริป แชร์กับเพื่อน หารเงินง่ายๆ</div><div class="tc-tags"><span class="tt">✈️ ท่องเที่ยว</span><span class="tt">💱 Multi Currency</span></div></div>
