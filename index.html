@@ -311,7 +311,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 /* ══════════════════════════════════
    FEATURED (Jodyub)
 ══════════════════════════════════ */
-#feat{padding:100px 0;position:relative;overflow:hidden}
+#feat{padding:100px 0;position:relative;overflow:hidden;background:var(--cream2);border-top:1px solid var(--bd2)}
 #feat::before{
   content:'';position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(ellipse 55% 40% at 50% 60%,rgba(245,200,74,.09) 0%,transparent 65%);
@@ -391,7 +391,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 /* ══════════════════════════════════
    COLLECTIONS
 ══════════════════════════════════ */
-#cols{padding:80px 0}
+#cols{padding:80px 0;background:#fff}
 .cols-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
 .col-card{
   border-radius:var(--rg);padding:24px 20px;border:1px solid var(--bd);
@@ -407,7 +407,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 /* ══════════════════════════════════
    WHY
 ══════════════════════════════════ */
-#why{padding:100px 0;position:relative;overflow:hidden}
+#why{padding:100px 0;position:relative;overflow:hidden;background:var(--cream3);border-top:1px solid var(--bd2)}
 #why::before{
   content:'';position:absolute;top:-100px;right:-80px;
   width:480px;height:480px;
@@ -609,38 +609,12 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
         </div>
       </div>
 
-      <!-- RIGHT: ecosystem visual (I love my job + Jodyub featured, floating cards) -->
+      <!-- RIGHT: ecosystem visual (I love my job + Jodyub featured stack, floating cards) -->
       <div class="hero-vis">
 
-        <div style="display:flex;flex-direction:column;gap:16px;align-items:center;">
+        <div style="position:relative;width:280px;height:300px;">
 
-          <div class="eco-jodyub">
-            <div class="ej-hd">
-              <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
-              <div class="ej-name">I love my job ❤️</div>
-              <div class="ej-sub">Team Work Tracker</div>
-            </div>
-            <div class="ej-screen">
-              <div class="ejs-hd">
-                <div class="ejs-trip">I ❤ my job</div>
-                <div><div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">total</div><div class="ejs-amt">128</div></div>
-              </div>
-              <div class="ejs-rows">
-                <div class="ejs-row"><div class="ejs-dot" style="background:#C4B5FD"></div><div class="ejs-n">Content</div><div class="ejs-v" style="color:#C4B5FD">78%</div></div>
-                <div class="ejs-row"><div class="ejs-dot" style="background:#F9A8C9"></div><div class="ejs-n">Customer</div><div class="ejs-v" style="color:#F9A8C9">52%</div></div>
-                <div class="ejs-row"><div class="ejs-dot" style="background:#C7F464"></div><div class="ejs-n">Campaign</div><div class="ejs-v" style="color:#C7F464">90%</div></div>
-              </div>
-            </div>
-            <div class="ej-cta">
-              <div style="display:flex;gap:5px;flex-wrap:wrap">
-                <span class="chip cl" style="font-size:9px;padding:3px 8px">Multi-team</span>
-                <span class="chip cd" style="font-size:9px;padding:3px 8px">Free</span>
-              </div>
-              <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer" class="ej-cta-btn">ใช้เลย →</a>
-            </div>
-          </div>
-
-          <div class="eco-jodyub">
+          <div class="eco-jodyub" style="position:absolute;top:38px;left:30px;z-index:4;transform:rotate(6deg);opacity:.94;">
             <div class="ej-hd">
               <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
               <div class="ej-name">Jodyub 💰</div>
@@ -663,6 +637,32 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
                 <span class="chip cy" style="font-size:9px;padding:3px 8px">Free</span>
               </div>
               <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="ej-cta-btn">ใช้เลย →</a>
+            </div>
+          </div>
+
+          <div class="eco-jodyub" style="position:absolute;top:0;left:0;z-index:6;transform:rotate(-4deg);">
+            <div class="ej-hd">
+              <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
+              <div class="ej-name">I love my job ❤️</div>
+              <div class="ej-sub">Team Work Tracker</div>
+            </div>
+            <div class="ej-screen">
+              <div class="ejs-hd">
+                <div class="ejs-trip">I ❤ my job</div>
+                <div><div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">total</div><div class="ejs-amt">128</div></div>
+              </div>
+              <div class="ejs-rows">
+                <div class="ejs-row"><div class="ejs-dot" style="background:#C4B5FD"></div><div class="ejs-n">Content</div><div class="ejs-v" style="color:#C4B5FD">78%</div></div>
+                <div class="ejs-row"><div class="ejs-dot" style="background:#F9A8C9"></div><div class="ejs-n">Customer</div><div class="ejs-v" style="color:#F9A8C9">52%</div></div>
+                <div class="ejs-row"><div class="ejs-dot" style="background:#C7F464"></div><div class="ejs-n">Campaign</div><div class="ejs-v" style="color:#C7F464">90%</div></div>
+              </div>
+            </div>
+            <div class="ej-cta">
+              <div style="display:flex;gap:5px;flex-wrap:wrap">
+                <span class="chip cl" style="font-size:9px;padding:3px 8px">Multi-team</span>
+                <span class="chip cd" style="font-size:9px;padding:3px 8px">Free</span>
+              </div>
+              <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer" class="ej-cta-btn">ใช้เลย →</a>
             </div>
           </div>
 
@@ -735,7 +735,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 
 <!-- ══ FEATURED ══ -->
 <!-- ══ I LOVE MY JOB SECTION ══ -->
-<section id="ilm-section" style="padding:100px 0;position:relative;overflow:hidden;">
+<section id="ilm-section" style="padding:100px 0;position:relative;overflow:hidden;background:#fff;border-top:1px solid var(--bd2);">
   <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 40% at 20% 50%,rgba(196,181,253,.12) 0%,transparent 60%);"></div>
   <div class="w">
     <div class="feat-grid">
@@ -850,7 +850,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 </section>
 
 <!-- ══ PATTA GO SECTION ══ -->
-<section id="go-section" style="padding:100px 0;background:var(--cream2);border-top:1px solid var(--bd2);position:relative;overflow:hidden;">
+<section id="go-section" style="padding:100px 0;background:#fff;border-top:1px solid var(--bd2);position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 50% 40% at 80% 50%,rgba(245,200,74,.08) 0%,transparent 60%);"></div>
   <div class="w">
     <div class="feat-grid">
