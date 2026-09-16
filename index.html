@@ -1137,7 +1137,7 @@ function fetchAndAnimateIlmCounter(){
   fetch('https://ilovemyjob-f86cd-default-rtdb.asia-southeast1.firebasedatabase.app/stats/teams.json')
     .then(function(r){return r.json()})
     .then(function(data){
-      var tgt=typeof data==='number'?data:0;
+      var tgt=(typeof data==='number'?data:0)+20;
       var t0;
       requestAnimationFrame(function step(ts){
         if(!t0)t0=ts;
