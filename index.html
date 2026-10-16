@@ -154,8 +154,8 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
   max-width:1100px;margin:0 auto;
   height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;
 }
-.logo{font-size:19px;font-weight:700;color:var(--dark);display:flex;align-items:center;gap:2px}
-.logo-dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);margin:0 1px;animation:ldot 2.5s ease-in-out infinite}
+.logo{font-size:19px;font-weight:700;color:var(--dark);display:flex;align-items:center;gap:2px;transition:color .3s}
+.logo-dot{width:7px;height:7px;border-radius:50%;background:var(--yellow);margin:0 1px;animation:ldot 2.5s ease-in-out infinite;transition:background .3s}
 @keyframes ldot{0%,100%{transform:scale(1)}50%{transform:scale(1.5)}}
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none}
 .nav-links a{padding:6px 14px;border-radius:var(--p);font-size:14px;font-weight:500;color:var(--t2);transition:all .18s}
@@ -163,7 +163,7 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 .nav-cta{padding:9px 20px;border-radius:var(--p);background:var(--dark);color:#fff;font-size:13px;font-weight:600;transition:all .22s cubic-bezier(.34,1.56,.64,1)}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(26,26,26,.22)}
 @media(max-width:760px){.nav-cta-2{display:none}}
-.nav-burger{display:none;padding:6px 10px;border-radius:var(--r);background:var(--cream2);font-size:17px}
+.nav-burger{display:none;padding:6px 10px;border-radius:var(--r);background:var(--cream2);font-size:17px;transition:all .3s}
 
 /* ══════════════════════════════════
    HERO
@@ -517,148 +517,270 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
   </div>
 </nav>
 
-<!-- ══ HERO BANNER SLIDER ══ -->
-<section id="hero-slider" style="position:relative;overflow:hidden;background:#0d0d1a;line-height:0;font-size:0;">
-
-  <!-- slides wrapper -->
-  <div id="slider-track" style="display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1);will-change:transform;align-items:stretch;">
+<!-- ══ HERO SLIDER (removed dark banner) ══ -->
+<div style="display:none" id="hero-slider-removed">
+<div id="slider-track-removed" style="display:flex">
 
     <!-- SLIDE 1 — Jodyub -->
-    <div class="hslide" style="min-width:100%;position:relative;cursor:pointer;" onclick="window.open('https://jodyub.patta.me','_blank')">
-      <img src="jodyub-hero-banner.png"
-           alt="จดยับ โฉมใหม่ — หารเงินทริปง่ายกว่าเดิม"
-           style="width:100%;height:clamp(240px,52vw,500px);display:block;object-fit:cover;object-position:center center;">
+    <div class="hslide" onclick="window.open('https://jodyub.patta.me','_blank')" style="min-width:100%;height:clamp(260px,48vw,480px);cursor:pointer;background:linear-gradient(135deg,#0a1628 0%,#0d2244 45%,#0f1a10 100%);position:relative;overflow:hidden;display:flex;align-items:center;font-size:initial;line-height:initial;">
+      <!-- bg blobs -->
+      <div style="position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(163,230,53,.12) 0%,transparent 70%);top:-80px;left:-60px;pointer-events:none;"></div>
+      <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.15) 0%,transparent 70%);bottom:-60px;right:20%;pointer-events:none;"></div>
+      <div style="max-width:1100px;margin:0 auto;padding:0 clamp(20px,5vw,64px);width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;box-sizing:border-box;">
+        <!-- left -->
+        <div style="flex:1;min-width:0;">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(163,230,53,.12);border:1px solid rgba(163,230,53,.25);border-radius:99px;padding:5px 14px;margin-bottom:16px;">
+            <span style="font-size:clamp(12px,1.2vw,14px);color:#a3e635;font-family:'Anuphan',sans-serif;font-weight:600;">✦ จดยับ โฉมใหม่</span>
+          </div>
+          <h2 style="font-family:'Anuphan',sans-serif;font-size:clamp(22px,4.5vw,52px);font-weight:800;color:#fff;line-height:1.15;margin:0 0 10px;letter-spacing:-0.02em;">หารเงินทริป<br><span style="color:#a3e635;">ง่ายกว่าเดิม</span></h2>
+          <p style="font-family:'Anuphan',sans-serif;font-size:clamp(13px,1.5vw,17px);color:rgba(255,255,255,.6);margin:0 0 20px;">แอปจดค่าใช้จ่าย ทริปเที่ยวแบบกลุ่ม · ฟรี · ไม่ต้องสมัคร</p>
+          <div style="display:inline-flex;align-items:center;gap:8px;background:#a3e635;border-radius:99px;padding:10px 22px;font-family:'Anuphan',sans-serif;font-size:clamp(13px,1.4vw,16px);font-weight:700;color:#0d1a00;">เปิดใช้งาน <span style="font-size:1.1em;">→</span></div>
+        </div>
+        <!-- right: mock phone card -->
+        <div style="flex-shrink:0;width:clamp(160px,22vw,240px);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:clamp(14px,2vw,22px);backdrop-filter:blur(10px);">
+          <div style="font-family:'Anuphan',sans-serif;font-size:12px;color:rgba(255,255,255,.45);margin-bottom:10px;">เงินกองกลางคงเหลือ</div>
+          <div style="font-family:'Anuphan',sans-serif;font-size:clamp(20px,3vw,32px);font-weight:800;color:#a3e635;margin-bottom:8px;">¥20,000</div>
+          <div style="height:6px;background:rgba(255,255,255,.1);border-radius:99px;margin-bottom:14px;overflow:hidden;"><div style="width:36%;height:100%;background:#a3e635;border-radius:99px;"></div></div>
+          <div style="display:flex;justify-content:space-between;font-family:'Anuphan',sans-serif;font-size:11px;color:rgba(255,255,255,.4);margin-bottom:14px;"><span>ใช้ไป ¥35,000</span><span>เติม ¥55,000</span></div>
+          <div style="background:rgba(163,230,53,.15);border:1px solid rgba(163,230,53,.3);border-radius:10px;padding:8px 12px;font-family:'Anuphan',sans-serif;font-size:12px;color:#a3e635;text-align:center;">+ เติมเงินกองกลาง</div>
+        </div>
+      </div>
     </div>
 
     <!-- SLIDE 2 — I love my job -->
-    <div class="hslide" style="min-width:100%;position:relative;cursor:pointer;background:#0d0d1a;" onclick="window.open('https://ilovemyjob.patta.me','_blank')">
-      <img src="ilm-hero-banner.png"
-           alt="I Love My Job โฉมใหม่ — บันทึกผลงานง่ายกว่าเดิม"
-           style="width:100%;height:clamp(240px,52vw,500px);display:block;object-fit:cover;object-position:center center;">
+    <div class="hslide" onclick="window.open('https://ilovemyjob.patta.me','_blank')" style="min-width:100%;height:clamp(260px,48vw,480px);cursor:pointer;background:linear-gradient(135deg,#12062a 0%,#1e0a3c 40%,#0a1220 100%);position:relative;overflow:hidden;display:flex;align-items:center;font-size:initial;line-height:initial;">
+      <!-- bg blobs -->
+      <div style="position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.15) 0%,transparent 70%);top:-60px;right:15%;pointer-events:none;"></div>
+      <div style="position:absolute;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(244,114,182,.1) 0%,transparent 70%);bottom:-40px;left:10%;pointer-events:none;"></div>
+      <div style="max-width:1100px;margin:0 auto;padding:0 clamp(20px,5vw,64px);width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;box-sizing:border-box;">
+        <!-- left -->
+        <div style="flex:1;min-width:0;">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.2);border-radius:99px;padding:5px 14px;margin-bottom:16px;">
+            <span style="width:7px;height:7px;border-radius:50%;background:#4ade80;display:inline-block;animation:ilm-pulse 1.5s infinite;"></span>
+            <span style="font-size:clamp(12px,1.2vw,14px);color:#4ade80;font-family:'Anuphan',sans-serif;font-weight:600;">I love my job · Live now</span>
+          </div>
+          <h2 style="font-family:'Anuphan',sans-serif;font-size:clamp(22px,4.5vw,52px);font-weight:800;color:#fff;line-height:1.15;margin:0 0 10px;letter-spacing:-0.02em;">บันทึกผลงาน<br><span style="color:#c4b5fd;">ง่ายกว่าเดิม</span></h2>
+          <p style="font-family:'Anuphan',sans-serif;font-size:clamp(13px,1.5vw,17px);color:rgba(255,255,255,.6);margin:0 0 20px;">Team Work Tracker · จดงาน ติดตามทีม · Sync เรียลไทม์</p>
+          <div style="display:inline-flex;align-items:center;gap:8px;background:#a78bfa;border-radius:99px;padding:10px 22px;font-family:'Anuphan',sans-serif;font-size:clamp(13px,1.4vw,16px);font-weight:700;color:#1a0a3c;">เปิดใช้งาน <span style="font-size:1.1em;">→</span></div>
+        </div>
+        <!-- right: mock card -->
+        <div style="flex-shrink:0;width:clamp(160px,22vw,240px);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:clamp(14px,2vw,22px);backdrop-filter:blur(10px);">
+          <div style="font-family:'Anuphan',sans-serif;font-size:12px;color:rgba(255,255,255,.45);margin-bottom:12px;">Team stats today</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div><div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:12px;color:rgba(255,255,255,.65);font-family:'Anuphan',sans-serif;">Content</span><span style="font-size:11px;color:rgba(255,255,255,.4);font-family:'Anuphan',sans-serif;">78%</span></div><div style="height:5px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;"><div style="width:78%;height:100%;background:#a78bfa;border-radius:99px;"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:12px;color:rgba(255,255,255,.65);font-family:'Anuphan',sans-serif;">Customer</span><span style="font-size:11px;color:rgba(255,255,255,.4);font-family:'Anuphan',sans-serif;">52%</span></div><div style="height:5px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;"><div style="width:52%;height:100%;background:#60a5fa;border-radius:99px;"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:12px;color:rgba(255,255,255,.65);font-family:'Anuphan',sans-serif;">Campaign</span><span style="font-size:11px;color:rgba(255,255,255,.4);font-family:'Anuphan',sans-serif;">30%</span></div><div style="height:5px;background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden;"><div style="width:30%;height:100%;background:#f472b6;border-radius:99px;"></div></div></div>
+          </div>
+          <div style="margin-top:14px;background:rgba(167,139,250,.15);border:1px solid rgba(167,139,250,.3);border-radius:10px;padding:8px 12px;font-family:'Anuphan',sans-serif;font-size:12px;color:#c4b5fd;text-align:center;">AI สรุปผลงานให้ ✦</div>
+        </div>
+      </div>
     </div>
 
-  </div><!-- /slider-track -->
-
-  <!-- dots -->
-  <div id="slider-dots" style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;">
-    <button onclick="goSlide(0)" class="sdot sdot-active" style="width:24px;height:8px;border-radius:99px;border:none;background:#fff;cursor:pointer;padding:0;transition:all .3s;opacity:.9;"></button>
-    <button onclick="goSlide(1)" class="sdot" style="width:8px;height:8px;border-radius:99px;border:none;background:rgba(255,255,255,.4);cursor:pointer;padding:0;transition:all .3s;"></button>
-  </div>
-
-  <!-- arrows -->
-  <button onclick="prevSlide()" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:18px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);">‹</button>
-  <button onclick="nextSlide()" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:18px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);">›</button>
-
-</section>
+  </div><!-- /removed dark slider -->
+</div><!-- /hero-slider-removed -->
 
 <style>
 @keyframes ilm-pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.sdot-active{width:24px!important;background:#fff!important;opacity:.95!important;}
+/* hero slider dots */
+.hsdot{width:8px;height:8px;border-radius:99px;border:none;background:var(--bd);cursor:pointer;padding:0;transition:all .3s;flex-shrink:0;}
+.hsdot.act{width:24px;background:var(--dark);}
 </style>
+
+<!-- ══ HERO (slider) ══ -->
+<section id="hero" style="position:relative;">
+  <div style="overflow:hidden;">
+  <!-- slides wrapper -->
+  <div id="hero-track" style="display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;">
+
+    <!-- ─────────────────────────────────────
+         SLIDE 1 — Jodyub อัปเดตใหม่
+    ───────────────────────────────────── -->
+    <div style="min-width:100%;box-sizing:border-box;">
+      <div class="w">
+        <div class="hero-grid">
+          <!-- LEFT -->
+          <div>
+            <div class="hero-pill">
+              <span class="pd"></span>
+              ✦ จดยับ · อัปเดตใหม่แล้ว!
+            </div>
+            <h1 class="hero-h1">หารเงินทริป<br>ง่ายกว่า<mark>เดิม</mark></h1>
+            <p class="hero-sub">จดยับโฉมใหม่มาแล้ว พร้อมฟีเจอร์ที่คุณรอ</p>
+
+            <!-- update list -->
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;">
+              <div style="display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);">
+                <span style="font-size:16px;flex-shrink:0;">💰</span>
+                <div><div style="font-size:13.5px;font-weight:700;color:var(--dark);margin-bottom:2px;">เงินกองกลาง</div><div style="font-size:12px;color:var(--t2);">เติมเงิน หัก ดูยอดคงเหลือได้ตลอด</div></div>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);">
+                <span style="font-size:16px;flex-shrink:0;">🌍</span>
+                <div><div style="font-size:13.5px;font-weight:700;color:var(--dark);margin-bottom:2px;">รองรับหลายสกุลเงิน</div><div style="font-size:12px;color:var(--t2);">¥ $ € ฿ แปลงอัตโนมัติ</div></div>
+              </div>
+              <div style="display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);">
+                <span style="font-size:16px;flex-shrink:0;">📊</span>
+                <div><div style="font-size:13.5px;font-weight:700;color:var(--dark);margin-bottom:2px;">Dashboard สรุปค่าใช้จ่าย</div><div style="font-size:12px;color:var(--t2);">ดูแบบกราฟ รู้ว่าใครจ่ายไปเท่าไร</div></div>
+              </div>
+            </div>
+
+            <div class="hero-trust">
+              <span class="ti">✓ ฟรี 100%</span>
+              <span class="ts"></span>
+              <span class="ti">✓ ไม่ต้องสมัคร</span>
+              <span class="ts"></span>
+              <span class="ti">✓ ใช้ได้ทันที</span>
+            </div>
+            <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer"
+              style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:11px 24px;background:var(--dark);color:#fff;border-radius:var(--p);font-size:14px;font-weight:700;font-family:'Anuphan',sans-serif;text-decoration:none;transition:all .2s;">
+              เปิด Jodyub →
+            </a>
+          </div>
+
+          <!-- RIGHT: Jodyub mock card -->
+          <div class="hero-vis">
+            <div class="eco-jodyub">
+              <div class="ej-hd">
+                <div class="ej-badge"><span class="dot"></span>✦ อัปเดตใหม่</div>
+                <div class="ej-name">จดยับ ✈️</div>
+                <div class="ej-sub">Trip Expense Tracker</div>
+              </div>
+              <div class="ej-screen">
+                <div class="ejs-hd">
+                  <div class="ejs-trip">🇯🇵 Japan Trip</div>
+                  <div><div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">กองกลาง</div><div class="ejs-amt">¥20,000</div></div>
+                </div>
+                <div class="ejs-rows">
+                  <div class="ejs-row"><div class="ejs-dot" style="background:#C7F464"></div><div class="ejs-n">ที่พัก</div><div class="ejs-v" style="color:#C7F464">¥12,000</div></div>
+                  <div class="ejs-row"><div class="ejs-dot" style="background:#F9A8C9"></div><div class="ejs-n">อาหาร</div><div class="ejs-v" style="color:#F9A8C9">¥8,500</div></div>
+                  <div class="ejs-row"><div class="ejs-dot" style="background:#7DD3FC"></div><div class="ejs-n">เดินทาง</div><div class="ejs-v" style="color:#7DD3FC">¥3,200</div></div>
+                </div>
+              </div>
+              <div class="ej-cta">
+                <div style="display:flex;gap:5px;flex-wrap:wrap">
+                  <span class="chip cl" style="font-size:9px;padding:3px 8px">Multi-currency</span>
+                  <span class="chip cd" style="font-size:9px;padding:3px 8px">Free</span>
+                </div>
+                <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="ej-cta-btn">เปิดเลย →</a>
+              </div>
+            </div>
+            <!-- floating mini cards -->
+            <div class="mini m1" style="min-width:120px">
+              <div class="mini-label">สรุปยอด</div>
+              <div class="mini-val">¥23,700</div>
+              <div class="mini-sub">3 คน · แบ่งเท่ากัน</div>
+            </div>
+            <div class="mini m2" style="min-width:110px">
+              <div class="mini-label">สกุลเงิน</div>
+              <div class="mini-row"><span class="mini-dot" style="background:var(--yellow)"></span>JPY</div>
+              <div class="mini-row"><span class="mini-dot" style="background:var(--mint)"></span>THB</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /slide 1 -->
+
+    <!-- ─────────────────────────────────────
+         SLIDE 2 — I Love My Job
+    ───────────────────────────────────── -->
+    <div style="min-width:100%;box-sizing:border-box;">
+      <div class="w">
+        <div class="hero-grid">
+          <!-- LEFT -->
+          <div>
+            <div class="hero-pill">
+              <span class="pd"></span>
+              Free tools · ไม่ต้องสมัคร · ใช้ได้เลย
+            </div>
+            <h1 class="hero-h1">ลดเรื่องให้คิด<br>ใช้ชีวิตให้ <mark>ง่ายขึ้น</mark></h1>
+            <p class="hero-sub">รวมเครื่องมือฟรี สำหรับชีวิตประจำวัน<br>เริ่มใช้ได้เลย ไม่ต้องสมัคร ไม่มีโฆษณา</p>
+
+            <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+              <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer"
+                style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);transition:all .22s cubic-bezier(.34,1.56,.64,1);text-decoration:none;"
+                onmouseover="this.style.borderColor='var(--dark)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--sh)'"
+                onmouseout="this.style.borderColor='var(--bd)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <div style="width:40px;height:40px;border-radius:12px;background:var(--l-l);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">❤️</div>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;align-items:center;gap:7px;margin-bottom:3px;">
+                    <span style="font-family:'Anuphan',sans-serif;font-size:15px;font-weight:700;color:var(--dark);">I love my job</span>
+                    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:var(--p);background:var(--m-l);color:#065F46;">● Live</span>
+                  </div>
+                  <div style="font-size:12px;color:var(--t2);">จดบันทึกงานทีม · สร้างทีมได้เอง · Sync แบบเรียลไทม์</div>
+                </div>
+                <div style="font-size:16px;color:var(--t3);flex-shrink:0;">→</div>
+              </a>
+            </div>
+
+            <div class="hero-trust">
+              <span class="ti">✓ ฟรี 100%</span>
+              <span class="ts"></span>
+              <span class="ti">✓ ไม่ต้องสมัคร</span>
+              <span class="ts"></span>
+              <span class="ti">✓ ใช้ได้ทันที</span>
+            </div>
+            <a href="#eco" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13.5px;font-weight:600;color:var(--t2);text-decoration:none;">
+              ดูเครื่องมืออื่นๆ ของเรา <span style="font-size:15px">→</span>
+            </a>
+          </div>
+
+          <!-- RIGHT: ILM visual -->
+          <div class="hero-vis">
+            <div class="eco-jodyub">
+              <div class="ej-hd">
+                <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
+                <div class="ej-name">I love my job ❤️</div>
+                <div class="ej-sub">Team Work Tracker</div>
+              </div>
+              <div class="ej-screen">
+                <div class="ejs-hd">
+                  <div class="ejs-trip">I ❤ my job</div>
+                  <div><div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">total</div><div class="ejs-amt">128</div></div>
+                </div>
+                <div class="ejs-rows">
+                  <div class="ejs-row"><div class="ejs-dot" style="background:#C4B5FD"></div><div class="ejs-n">Content</div><div class="ejs-v" style="color:#C4B5FD">78%</div></div>
+                  <div class="ejs-row"><div class="ejs-dot" style="background:#F9A8C9"></div><div class="ejs-n">Customer</div><div class="ejs-v" style="color:#F9A8C9">52%</div></div>
+                  <div class="ejs-row"><div class="ejs-dot" style="background:#C7F464"></div><div class="ejs-n">Campaign</div><div class="ejs-v" style="color:#C7F464">90%</div></div>
+                </div>
+              </div>
+              <div class="ej-cta">
+                <div style="display:flex;gap:5px;flex-wrap:wrap">
+                  <span class="chip cl" style="font-size:9px;padding:3px 8px">Multi-team</span>
+                  <span class="chip cd" style="font-size:9px;padding:3px 8px">Free</span>
+                </div>
+                <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer" class="ej-cta-btn">ใช้เลย →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /slide 2 -->
+
+  </div><!-- /hero-track -->
+  </div><!-- /overflow:hidden -->
+
+  <!-- slide dots -->
+  <div style="display:flex;justify-content:center;gap:8px;padding:0 0 28px;position:relative;z-index:2;">
+    <button class="hsdot act" onclick="heroSlide(0)"></button>
+    <button class="hsdot" onclick="heroSlide(1)"></button>
+  </div>
+
+</section>
 
 <script>
 (function(){
-  var cur=0, total=2, timer;
-  function goSlide(n){
+  var cur=0,total=2,timer;
+  function heroSlide(n){
     cur=n;
-    document.getElementById('slider-track').style.transform='translateX(-'+cur*100+'%)';
-    document.querySelectorAll('.sdot').forEach(function(d,i){
-      d.className=i===cur?'sdot sdot-active':'sdot';
-      d.style.cssText=i===cur
-        ?'width:24px;height:8px;border-radius:99px;border:none;background:#fff;cursor:pointer;padding:0;transition:all .3s;opacity:.95;'
-        :'width:8px;height:8px;border-radius:99px;border:none;background:rgba(255,255,255,.4);cursor:pointer;padding:0;transition:all .3s;';
+    document.getElementById('hero-track').style.transform='translateX(-'+cur*100+'%)';
+    document.querySelectorAll('.hsdot').forEach(function(d,i){
+      d.className=i===cur?'hsdot act':'hsdot';
     });
-    resetTimer();
+    clearInterval(timer);timer=setInterval(function(){heroSlide((cur+1)%total);},4500);
   }
-  function nextSlide(){goSlide((cur+1)%total);}
-  function prevSlide(){goSlide((cur-1+total)%total);}
-  function resetTimer(){clearInterval(timer);timer=setInterval(nextSlide,4500);}
-  window.goSlide=goSlide;window.nextSlide=nextSlide;window.prevSlide=prevSlide;
-  resetTimer();
+  window.heroSlide=heroSlide;
+  timer=setInterval(function(){heroSlide((cur+1)%total);},4500);
 })();
 </script>
-
-<!-- ══ HERO ══ -->
-<section id="hero">
-  <div class="w">
-    <div class="hero-grid">
-
-      <!-- LEFT: text -->
-      <div>
-        <div class="hero-pill">
-          <span class="pd"></span>
-          Free tools · ไม่ต้องสมัคร · ใช้ได้เลย
-        </div>
-        <h1 class="hero-h1">ลดเรื่องให้คิด<br>ใช้ชีวิตให้ <mark>ง่ายขึ้น</mark></h1>
-        <p class="hero-sub">รวมเครื่องมือฟรี สำหรับชีวิตประจำวัน<br>เริ่มใช้ได้เลย ไม่ต้องสมัคร ไม่มีโฆษณา</p>
-
-        <!-- tool card — คลิกได้ -->
-        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
-
-          <!-- I love my job card -->
-          <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer"
-            style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);transition:all .22s cubic-bezier(.34,1.56,.64,1);text-decoration:none;"
-            onmouseover="this.style.borderColor='var(--dark)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--sh)'"
-            onmouseout="this.style.borderColor='var(--bd)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-            <div style="width:40px;height:40px;border-radius:12px;background:var(--l-l);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">❤️</div>
-            <div style="flex:1;min-width:0;">
-              <div style="display:flex;align-items:center;gap:7px;margin-bottom:3px;">
-                <span style="font-family:'Anuphan',sans-serif;font-size:15px;font-weight:700;color:var(--dark);">I love my job</span>
-                <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:var(--p);background:var(--m-l);color:#065F46;">● Live</span>
-              </div>
-              <div style="font-size:12px;color:var(--t2);">จดบันทึกงานทีม · สร้างทีมได้เอง · Sync แบบเรียลไทม์</div>
-            </div>
-            <div style="font-size:16px;color:var(--t3);flex-shrink:0;">→</div>
-          </a>
-
-        </div>
-
-        <div class="hero-trust">
-          <span class="ti">✓ ฟรี 100%</span>
-          <span class="ts"></span>
-          <span class="ti">✓ ไม่ต้องสมัคร</span>
-          <span class="ts"></span>
-          <span class="ti">✓ ใช้ได้ทันที</span>
-        </div>
-
-        <a href="#eco" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13.5px;font-weight:600;color:var(--t2);text-decoration:none;">
-          ดูเครื่องมืออื่นๆ ของเรา <span style="font-size:15px">→</span>
-        </a>
-      </div>
-
-      <!-- RIGHT: I love my job — single featured visual, no clutter -->
-      <div class="hero-vis">
-
-        <div class="eco-jodyub">
-          <div class="ej-hd">
-            <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
-            <div class="ej-name">I love my job ❤️</div>
-            <div class="ej-sub">Team Work Tracker</div>
-          </div>
-          <div class="ej-screen">
-            <div class="ejs-hd">
-              <div class="ejs-trip">I ❤ my job</div>
-              <div><div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">total</div><div class="ejs-amt">128</div></div>
-            </div>
-            <div class="ejs-rows">
-              <div class="ejs-row"><div class="ejs-dot" style="background:#C4B5FD"></div><div class="ejs-n">Content</div><div class="ejs-v" style="color:#C4B5FD">78%</div></div>
-              <div class="ejs-row"><div class="ejs-dot" style="background:#F9A8C9"></div><div class="ejs-n">Customer</div><div class="ejs-v" style="color:#F9A8C9">52%</div></div>
-              <div class="ejs-row"><div class="ejs-dot" style="background:#C7F464"></div><div class="ejs-n">Campaign</div><div class="ejs-v" style="color:#C7F464">90%</div></div>
-            </div>
-          </div>
-          <div class="ej-cta">
-            <div style="display:flex;gap:5px;flex-wrap:wrap">
-              <span class="chip cl" style="font-size:9px;padding:3px 8px">Multi-team</span>
-              <span class="chip cd" style="font-size:9px;padding:3px 8px">Free</span>
-            </div>
-            <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer" class="ej-cta-btn">ใช้เลย →</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ MARQUEE ══ -->
 <div id="mq">
