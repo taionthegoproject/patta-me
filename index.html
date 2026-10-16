@@ -581,23 +581,12 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
 
 <style>
 @keyframes ilm-pulse{0%,100%{opacity:1}50%{opacity:.4}}
-/* hero slider dots */
-.hsdot{width:8px;height:8px;border-radius:99px;border:none;background:var(--bd);cursor:pointer;padding:0;transition:all .3s;flex-shrink:0;}
-.hsdot.act{width:24px;background:var(--dark);}
 </style>
 
-<!-- ══ HERO (slider) ══ -->
+<!-- ══ HERO ══ -->
 <section id="hero" style="position:relative;">
-  <div style="overflow:hidden;">
-  <!-- slides wrapper -->
-  <div id="hero-track" style="display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;">
-
-    <!-- ─────────────────────────────────────
-         SLIDE 1 — Jodyub อัปเดตใหม่
-    ───────────────────────────────────── -->
-    <div style="min-width:100%;box-sizing:border-box;">
-      <div class="w">
-        <div class="hero-grid">
+  <div class="w">
+    <div class="hero-grid">
           <!-- LEFT -->
           <div>
             <div class="hero-pill">
@@ -677,110 +666,10 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
           </div>
         </div>
       </div>
-    </div><!-- /slide 1 -->
-
-    <!-- ─────────────────────────────────────
-         SLIDE 2 — I Love My Job
-    ───────────────────────────────────── -->
-    <div style="min-width:100%;box-sizing:border-box;">
-      <div class="w">
-        <div class="hero-grid">
-          <!-- LEFT -->
-          <div>
-            <div class="hero-pill">
-              <span class="pd"></span>
-              Free tools · ไม่ต้องสมัคร · ใช้ได้เลย
-            </div>
-            <h1 class="hero-h1">ลดเรื่องให้คิด<br>ใช้ชีวิตให้ <mark>ง่ายขึ้น</mark></h1>
-            <p class="hero-sub">รวมเครื่องมือฟรี สำหรับชีวิตประจำวัน<br>เริ่มใช้ได้เลย ไม่ต้องสมัคร ไม่มีโฆษณา</p>
-
-            <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
-              <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer"
-                style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);transition:all .22s cubic-bezier(.34,1.56,.64,1);text-decoration:none;"
-                onmouseover="this.style.borderColor='var(--dark)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--sh)'"
-                onmouseout="this.style.borderColor='var(--bd)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                <div style="width:40px;height:40px;border-radius:12px;background:var(--l-l);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">❤️</div>
-                <div style="flex:1;min-width:0;">
-                  <div style="display:flex;align-items:center;gap:7px;margin-bottom:3px;">
-                    <span style="font-family:'Anuphan',sans-serif;font-size:15px;font-weight:700;color:var(--dark);">I love my job</span>
-                    <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:var(--p);background:var(--m-l);color:#065F46;">● Live</span>
-                  </div>
-                  <div style="font-size:12px;color:var(--t2);">จดบันทึกงานทีม · สร้างทีมได้เอง · Sync แบบเรียลไทม์</div>
-                </div>
-                <div style="font-size:16px;color:var(--t3);flex-shrink:0;">→</div>
-              </a>
-            </div>
-
-            <div class="hero-trust">
-              <span class="ti">✓ ฟรี 100%</span>
-              <span class="ts"></span>
-              <span class="ti">✓ ไม่ต้องสมัคร</span>
-              <span class="ts"></span>
-              <span class="ti">✓ ใช้ได้ทันที</span>
-            </div>
-            <a href="#eco" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13.5px;font-weight:600;color:var(--t2);text-decoration:none;">
-              ดูเครื่องมืออื่นๆ ของเรา <span style="font-size:15px">→</span>
-            </a>
-          </div>
-
-          <!-- RIGHT: ILM visual -->
-          <div class="hero-vis">
-            <div class="eco-jodyub">
-              <div class="ej-hd">
-                <div class="ej-badge"><span class="dot"></span>Featured Tool</div>
-                <div class="ej-name">I love my job ❤️</div>
-                <div class="ej-sub">Team Work Tracker</div>
-              </div>
-              <div class="ej-screen">
-                <div class="ejs-hd">
-                  <div class="ejs-trip">I ❤ my job</div>
-                  <div><div style="font-size:7px;color:rgba(255,255,255,.3);text-align:right">total</div><div class="ejs-amt">128</div></div>
-                </div>
-                <div class="ejs-rows">
-                  <div class="ejs-row"><div class="ejs-dot" style="background:#C4B5FD"></div><div class="ejs-n">Content</div><div class="ejs-v" style="color:#C4B5FD">78%</div></div>
-                  <div class="ejs-row"><div class="ejs-dot" style="background:#F9A8C9"></div><div class="ejs-n">Customer</div><div class="ejs-v" style="color:#F9A8C9">52%</div></div>
-                  <div class="ejs-row"><div class="ejs-dot" style="background:#C7F464"></div><div class="ejs-n">Campaign</div><div class="ejs-v" style="color:#C7F464">90%</div></div>
-                </div>
-              </div>
-              <div class="ej-cta">
-                <div style="display:flex;gap:5px;flex-wrap:wrap">
-                  <span class="chip cl" style="font-size:9px;padding:3px 8px">Multi-team</span>
-                  <span class="chip cd" style="font-size:9px;padding:3px 8px">Free</span>
-                </div>
-                <a href="https://ilovemyjob.patta.me" target="_blank" rel="noopener noreferrer" class="ej-cta-btn">ใช้เลย →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!-- /slide 2 -->
-
-  </div><!-- /hero-track -->
-  </div><!-- /overflow:hidden -->
-
-  <!-- slide dots -->
-  <div style="display:flex;justify-content:center;gap:8px;padding:0 0 28px;position:relative;z-index:2;">
-    <button class="hsdot act" onclick="heroSlide(0)"></button>
-    <button class="hsdot" onclick="heroSlide(1)"></button>
-  </div>
+    </div><!-- /hero-grid -->
+  </div><!-- /w -->
 
 </section>
-
-<script>
-(function(){
-  var cur=0,total=2,timer;
-  function heroSlide(n){
-    cur=n;
-    document.getElementById('hero-track').style.transform='translateX(-'+cur*100+'%)';
-    document.querySelectorAll('.hsdot').forEach(function(d,i){
-      d.className=i===cur?'hsdot act':'hsdot';
-    });
-    clearInterval(timer);timer=setInterval(function(){heroSlide((cur+1)%total);},4500);
-  }
-  window.heroSlide=heroSlide;
-  timer=setInterval(function(){heroSlide((cur+1)%total);},4500);
-})();
-</script>
 
 <!-- ══ MARQUEE ══ -->
 <div id="mq">
@@ -876,22 +765,45 @@ h1,h2,h3,h4,.logo,.t-h{font-family:'Anuphan',sans-serif;letter-spacing:-.02em;li
   <div class="w">
     <div class="feat-grid">
       <div class="rv">
-        <div class="ey" style="background:var(--m-l);color:#065F46">🔥 Featured Tool</div>
-        <h2 class="sec-h">Jodyub</h2>
-        <p class="sec-b">จดค่าใช้จ่ายทริป แชร์กับเพื่อนง่ายๆ รองรับหลายสกุลเงิน ใช้ได้เลยไม่ต้องสมัคร</p>
-        <div class="feat-checks">
-          <div class="fck"><div class="fck-i">✓</div>สร้างทริป ได้ Trip Code แชร์เพื่อนได้ทันที</div>
-          <div class="fck"><div class="fck-i">✓</div>รองรับ KRW · JPY · USD และอื่นๆ</div>
-          <div class="fck"><div class="fck-i">✓</div>สรุปยอดและหารเงินหลังทริป</div>
-          <div class="fck"><div class="fck-i">✓</div>ใช้ได้บนมือถือ ไม่ต้องโหลดแอป</div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+          <div class="ey" style="background:var(--m-l);color:#065F46">🔥 Featured Tool</div>
+          <div class="ey" style="background:#FEF9C3;color:#854D0E;display:flex;align-items:center;gap:5px;">
+            <span style="width:6px;height:6px;border-radius:50%;background:#EAB308;display:inline-block;"></span>
+            อัปเดตใหม่ Oct 2024
+          </div>
         </div>
+        <h2 class="sec-h">Jodyub</h2>
+        <p class="sec-b">โฉมใหม่มาแล้ว — จดค่าใช้จ่ายทริป แชร์กับเพื่อน หารเงินง่ายๆ รองรับหลายสกุลเงิน</p>
+
+        <!-- update cards -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px;">
+          <div style="padding:14px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);">
+            <div style="font-size:20px;margin-bottom:6px;">💰</div>
+            <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:3px;">เงินกองกลาง</div>
+            <div style="font-size:12px;color:var(--t2);line-height:1.5;">เติมเงินรวม หักค่าใช้จ่าย ดูยอดคงเหลือได้ตลอดทริป</div>
+          </div>
+          <div style="padding:14px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);">
+            <div style="font-size:20px;margin-bottom:6px;">🌍</div>
+            <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:3px;">หลายสกุลเงิน</div>
+            <div style="font-size:12px;color:var(--t2);line-height:1.5;">¥ $ € ₩ ฿ บันทึกต่างสกุล แปลงอัตโนมัติ</div>
+          </div>
+          <div style="padding:14px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);">
+            <div style="font-size:20px;margin-bottom:6px;">📊</div>
+            <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:3px;">Dashboard สรุปทริป</div>
+            <div style="font-size:12px;color:var(--t2);line-height:1.5;">กราฟค่าใช้จ่าย ดูได้ว่าใครจ่ายไปเท่าไร</div>
+          </div>
+          <div style="padding:14px;background:#fff;border:1.5px solid var(--bd);border-radius:var(--rg);">
+            <div style="font-size:20px;margin-bottom:6px;">🔗</div>
+            <div style="font-size:13px;font-weight:700;color:var(--dark);margin-bottom:3px;">แชร์ Trip Code</div>
+            <div style="font-size:12px;color:var(--t2);line-height:1.5;">สร้างทริป กด share ส่งลิงก์ให้เพื่อนได้ทันที</div>
+          </div>
+        </div>
+
         <div class="fc-hl">
           <span class="chip cy">แชร์ลิงก์ได้</span>
           <span class="chip cm">Mobile Friendly</span>
           <span class="chip cl">Multi Currency</span>
           <span class="chip cd">Free to Use</span>
-          <span class="chip cs">Trip Summary</span>
-          <span class="chip cp">Split Bills</span>
         </div>
         <a href="https://jodyub.patta.me" target="_blank" rel="noopener noreferrer" class="btn btn-dark">เปิดใช้งาน Jodyub →</a>
       </div>
